@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +13,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['middleware' => 'auth'], function () {
+
+	Route::get('/home', 'HomeController@index')->name('home')->middleware('auth.basic');
+	Route::get('/donation-areas', 'Donation\DonationAreaController@index');
+	Route::get('/accounts', 'AccountController@index');
+	Route::get('/transactions', 'TransactionController@index');
+	Route::get('/profile', 'UserController@index');
+
 });

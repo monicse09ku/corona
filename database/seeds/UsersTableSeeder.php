@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 use App\User;
+use Webpatser\Uuid\Uuid;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,7 +15,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+    	User::truncate();
+
+    	$users = [
             [
                 'name' => 'Super Admin',
                 'email' => 'super-admin@gmail.com',
@@ -50,5 +55,6 @@ class UsersTableSeeder extends Seeder
         foreach ($users as $user) {
             User::create($user);
         }
+
     }
 }

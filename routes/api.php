@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/login', 'Api\LoginController@login');
+Route::post('/register', 'Api\LoginController@register');
+Route::apiResource('donation-areas', 'Api\DonationAreaController')->middleware('auth:api');
+
+
+
+Route::apiResource('accounts', 'Api\AccountController')->middleware('auth:api');
+Route::apiResource('transactions', 'Api\TransactionController')->middleware('auth:api');
+Route::get('user', 'Api\TransactionController@user')->middleware('auth:api');
+Route::post('user', 'Api\TransactionController@userUpdate')->middleware('auth:api');
