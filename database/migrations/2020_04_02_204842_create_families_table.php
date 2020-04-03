@@ -19,7 +19,7 @@ class CreateFamiliesTable extends Migration
             $table->string('phone');
             $table->string('type')->comment('not poor, poor, extreme poor');
             $table->integer('member');
-            $table->date('donation_needed_date')->default(DB::raw('NOW()'));
+            $table->dateTime('donation_needed_date')->default(DB::raw('NOW()'));
             $table->text('details');
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->text('details')->comment('number of dead,suspected,infected,recovered');
             $table->string('authenticity')->comment('informer,ngo,government');
             $table->integer('claim_count')->default(0);
-            $table->date('claim_date')->default(DB::raw('NOW()'));
+            $table->dateTime('claim_date')->default(DB::raw('NOW()'));
             $table->timestamps();
         });
     }
