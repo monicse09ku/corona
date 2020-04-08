@@ -28,6 +28,9 @@
         <li class="header">MAIN NAVIGATION</li>      
         <li @if( url()->current() == url('/home')) class="active" @endif><a href="{{ url('/home') }}"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
         <li @if( url()->current() == url('/donation-areas')) class="active" @endif><a href="{{ url('/donation-areas') }}"><i class="fa fa-book"></i> <span>Donation Areas</span></a></li>
+        <li @if( url()->current() == url('/organisations')) class="active" @endif><a href="{{ url('/organisations') }}"><i class="fa fa-book"></i> <span>Organisations</span></a></li>
+        <li @if( url()->current() == url('/donors')) class="active" @endif><a href="{{ url('/donors') }}"><i class="fa fa-book"></i> <span>Donors</span></a></li>
+        <li @if( url()->current() == url('/expenses')) class="active" @endif><a href="{{ url('/expenses') }}"><i class="fa fa-book"></i> <span>Expenses</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

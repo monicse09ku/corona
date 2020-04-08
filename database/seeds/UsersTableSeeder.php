@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => bcrypt('123456'), // password
                 'remember_token' => Str::random(10),
-                'role' => 'donor',
+                'role' => 'org_admin',
             ],
             [
                 'name' => 'Informer',

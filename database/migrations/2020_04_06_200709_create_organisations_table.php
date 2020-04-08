@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonorDonationAreasTable extends Migration
+class CreateOrganisationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDonorDonationAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('donor_donation_areas', function (Blueprint $table) {
+        Schema::create('organisations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('donation_area_id')->unsigned();
-            $table->bigInteger('org_id')->unsigned()->comment('organisation id');
+            $table->string('name');
+            $table->string('status')->default('active');
+            $table->bigInteger('user_id')->unsigned()->comment('org admin id');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDonorDonationAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donor_donation_areas');
+        Schema::dropIfExists('organisations');
     }
 }

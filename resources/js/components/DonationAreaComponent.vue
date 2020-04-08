@@ -12,6 +12,8 @@
                 donationArea: {
                     area_name: '',
                     status: '',
+                    lat: '',
+                    long: '',
                 },
                 donation_area_id: '',
                 pagination:{},
@@ -22,9 +24,9 @@
         },
         methods: {
             getAddressData: function (addressData, placeResultData, id) {
-                //this.address = addressData;
-                console.log('addressData')
-                console.log(addressData)
+                this.donationArea.area_name = addressData.route + ', ' + addressData.locality
+                this.donationArea.lat = addressData.latitude 
+                this.donationArea.long = addressData.longitude 
             },
             fetchDonationAreas(){
                 axios.get('api/donation-areas')
@@ -36,6 +38,8 @@
                 let formData = {
                     area_name : this.donationArea.area_name,
                     status : this.donationArea.status,
+                    lat : this.donationArea.lat,
+                    long : this.donationArea.long,
                     user_id : document.getElementById("user_id").value
                 }
 
@@ -71,22 +75,22 @@
                 this.donation_area_id = data.id
                 this.donationArea.area_name = data.area_name
                 this.donationArea.status = data.status
+                this.donationArea.lat = data.lat
+                this.donationArea.long = data.long
+                document.getElementById('map').value = data.area_name
             },
 
             deleteDonationArea(id) {
                 if (confirm('Are You Sure?')) {
-                    fetch(`api/donation-areas/${id}`, {
-                        method: 'delete'
+                    axios['delete'](`api/donation-areas/${id}`)
+                    .then(response => {
+                        alert('Donation Areas Removed')
+                        this.fetchDonationAreas()
                     })
-                    .then(res => res.json())
-                    .then(data => {
-                        alert('Donation Areas Removed');
-                        this.fetchDonationAreas();
-                    })
-                    .catch(err => console.log(err));
+                    .catch(err => console.log(err))
                 }
             },
-            toggoleDonationAreaFormForm(){
+            toggoleDonationAreaForm(){
                 this.showDonationAreaForm = !this.showDonationAreaForm
             },
             closeDonationAreaForm(){

@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <div class="card">
-                  <button v-if="!showDonationAreaForm" type="button" class="btn btn-primary pull-right" @click="toggoleDonationAreaFormForm()">
+                  <button v-if="!showDonationAreaForm" type="button" class="btn btn-primary pull-right" @click="toggoleDonationAreaForm()">
                     Add Donation Area
                   </button>
 
@@ -32,14 +32,14 @@
                             <tr>
                               <th>Donation Area Name</th>
                               <th>Status</th>
-                              <th style="width: 60px">Actions</th>
+                              <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="donationArea in donationAreas">
                               <td v-text="donationArea.area_name"></td>
                               <td v-text="donationArea.status"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditDonationArea(donationArea)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                                <button @click="deleteDonationArea(donationArea.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                <button style="margin-bottom: 5px" @click="deleteDonationArea(donationArea.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
                             

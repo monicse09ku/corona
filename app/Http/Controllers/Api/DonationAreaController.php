@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\Donation;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\DonationAreaResource;
 use App\Models\DonationArea;
-use Auth;
 
-class DonationAreaController extends Controller
+class DonationAreaController extends ApiBaseController
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class DonationAreaController extends Controller
      */
     public function index(Request $request)
     {
-        return DonationAreaResource::collection()->paginate(request('limit') ?? 10));
+        return DonationAreaResource::collection(DonationArea::paginate(request('limit') ?? 10));
     }
 
     /**
@@ -29,21 +28,31 @@ class DonationAreaController extends Controller
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'account_name' => 'required',
-            'account_desc' => 'required'
+            'area_name' => 'required',
+            'status' => 'required',
+            'lat' => 'required',
+            'long' => 'required'
         ]);
 
         if ($validator->fails()) {
             return $this->respondValidationError('Parameters failed validation');
         }
 
+        $donation_area = DonationArea::where([
+            ['lat', $request->lat],
+            ['long', $request->long]
+        ])->first();
+
+        if ($donation_area !== null) {
+           return $this->respondInternalError('Donation Area already exists.');
+        }
+
         try{
-            Account::create([
-                    'user_id' => $request->user_id,
-                    'account_id' => rand(100000000000,999999999999),
-                    'account_name' => $request->account_name,
-                    'account_desc' => $request->account_desc,
-                    'balance' => 1000
+            DonationArea::create([
+                    'area_name' => $request->area_name,
+                    'status' => $request->status,
+                    'lat' => $request->lat,
+                    'long' => $request->long
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -61,18 +70,31 @@ class DonationAreaController extends Controller
     public function update(Request $request, $id)
     {
         $validator = \Validator::make($request->all(), [
-            'account_name' => 'required',
-            'account_desc' => 'required'
+            'area_name' => 'required',
+            'status' => 'required',
+            'lat' => 'required',
+            'long' => 'required'
         ]);
 
         if ($validator->fails()) {
-            return $this->respondValidationError('Parameters failed validation for a login');
+            return $this->respondValidationError('Parameters failed validation');
+        }
+
+        $donation_area = DonationArea::where([
+            ['lat', $request->lat],
+            ['long', $request->long]
+        ])->first();
+
+        if ($donation_area !== null) {
+           return $this->respondInternalError('Donation Area already exists.');
         }
 
         try{
-            Account::where('id', $id)->update([
-                    'account_name' => $request->account_name,
-                    'account_desc' => $request->account_desc,
+            DonationArea::where('id', $id)->update([
+                    'area_name' => $request->area_name,
+                    'status' => $request->status,
+                    'lat' => $request->lat,
+                    'long' => $request->long
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -89,7 +111,7 @@ class DonationAreaController extends Controller
     public function destroy($id)
     {
         try {
-            if (Account::findOrFail($id)->delete()) {
+            if (DonationArea::findOrFail($id)->delete()) {
                 return $this->respondSuccess('DELETE_SUCCESS');
             }
         } catch (\Exception $e) {
