@@ -17,6 +17,7 @@ Route::post('/login', 'Api\LoginController@login');
 Route::post('/register', 'Api\LoginController@register');
 Route::apiResource('donation-areas', 'Api\DonationAreaController')->middleware('auth:api');
 Route::apiResource('organisations', 'Api\OrganisationController')->middleware('auth:api');
+Route::apiResource('volunteers', 'Api\volunteerController')->middleware('auth:api');
 Route::apiResource('donors', 'Api\DonorController')->middleware('auth:api');
 Route::apiResource('expenses', 'Api\ExpenseController')->middleware('auth:api');
 

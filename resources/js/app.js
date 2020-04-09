@@ -20,6 +20,7 @@ window.Vue = require('vue');
 
 Vue.component('donation-area-component', require('./components/DonationAreaComponent.vue').default);
 Vue.component('organisation-component', require('./components/OrganisationComponent.vue').default);
+Vue.component('volunteer-component', require('./components/VolunteerComponent.vue').default);
 Vue.component('donor-component', require('./components/DonorComponent.vue').default);
 Vue.component('expense-component', require('./components/ExpenseComponent.vue').default);
 Vue.component('user-component', require('./components/UserComponent.vue').default);
