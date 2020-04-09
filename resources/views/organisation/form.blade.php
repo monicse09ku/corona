@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="card-body">
   <!-- Horizontal Form -->
   <div class="box box-info">
     <div class="box-header with-border">
@@ -9,32 +9,26 @@
     <form v-on:submit.prevent class="form-horizontal">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-          <div class="col-sm-10">
-            <input type="text" v-model="organisation.name" class="form-control"> 
-          </div> 
+        <div class="col-md-4 col-sm-12">
+          <label for="inputEmail3" class="control-label">Name</label>
+          <input type="text" v-model="organisation.name" class="form-control"> 
         </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
-          <div class="col-sm-10">
-            <select v-model="organisation.status" class="form-control" >
-              <option disabled value="">Please select one</option>
-              <option value="active">Active</option>
-              <option value="pending">Pending</option>
-            </select>
-          </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Status</label>
+          <select v-model="organisation.status" class="form-control" >
+            <option disabled value="">Please select one</option>
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+          </select>
         </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Org Admin</label>
-          <div class="col-sm-10">
-            <select v-model="organisation.user_id" class="form-control" >
-              <option disabled value="">Please select one</option>
-              @foreach($org_admins as $org_admin)
-              <option value="{{$org_admin->id}}">{{$org_admin->name}}</option>
-              @endforeach
-            </select>
-          </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Org Admin</label>
+          <select v-model="organisation.user_id" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach($org_admins as $org_admin)
+            <option value="{{$org_admin->id}}">{{$org_admin->name}}</option>
+            @endforeach
+          </select>
         </div>
       </div>
       <!-- /.box-body -->

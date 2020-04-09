@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="card-body">
   <!-- Horizontal Form -->
   <div class="box box-info">
     <div class="box-header with-border">
@@ -9,28 +9,22 @@
     <form v-on:submit.prevent class="form-horizontal">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-          <div class="col-sm-10">
-            <input type="text" v-model="volunteer.name" class="form-control"> 
-          </div> 
+        <div class="col-md-4 col-sm-12">
+          <label for="inputEmail3" class="control-label">Name</label>
+          <input type="text" v-model="volunteer.name" class="form-control"> 
         </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
-          <div class="col-sm-10">
-            <input type="text" v-model="volunteer.phone" class="form-control"> 
-          </div> 
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Organisation</label>
-          <div class="col-sm-10">
-            <select v-model="volunteer.org_id" class="form-control" >
-              <option disabled value="">Please select one</option>
-              @foreach($organisations as $organisation)
-              <option value="{{$organisation->id}}">{{$organisation->name}}</option>
-              @endforeach
-            </select>
-          </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputEmail3" class="control-label">Phone</label>
+          <input type="text" v-model="volunteer.phone" class="form-control"> 
+        </div> 
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Organisation</label>
+          <select v-model="volunteer.org_id" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach($organisations as $organisation)
+            <option value="{{$organisation->id}}">{{$organisation->name}}</option>
+            @endforeach
+          </select>
         </div>
       </div>
       <!-- /.box-body -->

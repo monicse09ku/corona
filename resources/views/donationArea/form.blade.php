@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="card-body">
   <!-- Horizontal Form -->
   <div class="box box-info">
     <div class="box-header with-border">
@@ -8,31 +8,28 @@
     <!-- form start -->
     <form v-on:submit.prevent class="form-horizontal">
       <div class="box-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-          <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-          <div class="col-sm-10">
-              <vue-google-autocomplete
-                  ref="address"
-                  id="map"
-                  classname="form-control"
-                  placeholder="Please type your address"
-                  v-on:placechanged="getAddressData"
-                  country="sg"
-              >
-              </vue-google-autocomplete>
-          </div>
+        <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+        <div class="col-md-6 col-sm-12">
+          <label for="inputEmail3" class="control-label">Name</label>
+            <vue-google-autocomplete
+                ref="address"
+                id="map"
+                classname="form-control"
+                placeholder="Please type your address"
+                v-on:placechanged="getAddressData"
+                country="sg"
+            >
+            </vue-google-autocomplete>
         </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
-
-          <div class="col-sm-10">
-            <select v-model="donationArea.status" class="form-control" >
-              <option disabled value="">Please select one</option>
-              <option value="active">Active</option>
-              <option value="pending">Pending</option>
-            </select>
-          </div>
+      
+        
+        <div class="col-md-6 col-sm-12">
+          <label for="inputPassword3" class="control-label">Description</label>
+          <select v-model="donationArea.status" class="form-control" >
+            <option disabled value="">Please select one</option>
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+          </select>
         </div>
       </div>
       <!-- /.box-body -->
