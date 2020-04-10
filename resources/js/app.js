@@ -19,6 +19,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('donation-area-component', require('./components/DonationAreaComponent.vue').default);
+Vue.component('donation-component', require('./components/DonationComponent.vue').default);
 Vue.component('family-component', require('./components/FamilyComponent.vue').default);
 Vue.component('organisation-component', require('./components/OrganisationComponent.vue').default);
 Vue.component('volunteer-component', require('./components/VolunteerComponent.vue').default);
