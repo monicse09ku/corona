@@ -17,7 +17,6 @@ class CreateDonationsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('donation_area_id')->unsigned();
             $table->bigInteger('family_id')->unsigned();
-            $table->text('donated_products');
             $table->integer('days');
             $table->timestamps();
         });

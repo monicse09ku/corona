@@ -11,7 +11,7 @@
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
         <div class="col-md-6 col-sm-12">
           <label for="inputEmail3" class="control-label">Name</label>
-            <vue-google-autocomplete
+            <!-- <vue-google-autocomplete
                 ref="address"
                 id="map"
                 classname="form-control"
@@ -19,7 +19,9 @@
                 v-on:placechanged="getAddressData"
                 country="sg"
             >
-            </vue-google-autocomplete>
+            </vue-google-autocomplete> -->
+
+          <input type="text" v-model="donationArea.area_name" class="form-control">
         </div>
       
         
@@ -31,7 +33,16 @@
             <option value="pending">Pending</option>
           </select>
         </div>
+        <div class="col-md-6 col-sm-12">
+          <label for="inputEmail3" class="control-label">Latitude</label>
+          <input type="text" v-model="donationArea.lat" class="form-control">
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <label for="inputEmail3" class="control-label">Longitude</label>
+          <input type="text" v-model="donationArea.long" class="form-control">
+        </div>
       </div>
+        
       <!-- /.box-body -->
       <div class="box-footer">
         <button @click="closeDonationAreaForm()" type="submit" class="btn btn-default pull-right">Cancel</button>
