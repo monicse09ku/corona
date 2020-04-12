@@ -10,7 +10,8 @@
                 families: [],
                 donation: {
                     donation_area_id: '',
-                    family_id: ''
+                    family_id: '',
+                    org_id: ''
                 },
                 donation_id: '',
                 pagination:{},
@@ -37,7 +38,8 @@
             saveDonation(){
                 let formData = {
                     donation_area_id : this.donation.donation_area_id,
-                    family_id : this.donation.family_id
+                    family_id : this.donation.family_id,
+                    org_id : this.donation.org_id
                 }
 
                 let method = !this.donation_id ? 'post' : 'put'
@@ -60,6 +62,7 @@
                         this.showDonationForm = false
                         this.donation.donation_area_id = ''
                         this.donation.family_id = ''
+                        this.donation.org_id = ''
                     }else{
                         alert(response.data.error.message)
                     }
@@ -72,6 +75,7 @@
                 this.donation_id = data.id
                 this.donation.donation_area_id = data.donation_area_id
                 this.donation.family_id = data.family_id
+                this.donation.org_id = data.org_id
             },
 
             deleteDonation(id) {

@@ -9,7 +9,7 @@
     <form v-on:submit.prevent class="form-horizontal">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">Donation Area</label>
           <select v-model="donation.donation_area_id" class="form-control" @change="getAllFamilies()">
             <option disabled value="">Please select one</option>
@@ -18,7 +18,16 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Organisation</label>
+          <select v-model="donation.org_id" class="form-control">
+            <option disabled value="">Please select one</option>
+            @foreach($organisations as $organisation)
+            <option value="{{$organisation->id}}">{{$organisation->name}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">Family</label>
           <select v-model="donation.family_id" class="form-control" >
             <option disabled value="">Please select one</option>

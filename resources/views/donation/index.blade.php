@@ -32,12 +32,14 @@
                             <tr>
                               <th>Donation Area</th>
                               <th>Name</th>
+                              <th>Organisation</th>
                               <th>Donation Date</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="donation in donations">
                               <td v-text="donation.donation_area.area_name"></td>
                               <td v-text="donation.family.name"></td>
+                              <td v-text="donation.organisation.name"></td>
                               <td v-text="donation.created_at"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditDonation(donation)" class="btn btn-warning"><i class="fa fa-edit"></i></button>

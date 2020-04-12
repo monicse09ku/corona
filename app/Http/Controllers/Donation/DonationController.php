@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Donation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DonationArea;
+use App\Models\Organisation;
 
 class DonationController extends Controller
 {
@@ -16,7 +17,8 @@ class DonationController extends Controller
     public function index()
     {
         $donation_areas = DonationArea::get();
-        return view('donation.index', compact('donation_areas'));
+        $organisations = Organisation::get();
+        return view('donation.index', compact('donation_areas', 'organisations'));
     }
 
     /**
