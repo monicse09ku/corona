@@ -39,22 +39,21 @@
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="family in families">
+                              <td v-if="family.contact_history" style="color: red; font-weight: bold;" v-text="family.name"></td>
+                              <td v-else style="color: green;font-weight: bold;" v-text="family.name"></td>
                               <td v-text="family.name"></td>
                               <td v-text="family.phone"></td>
                               <td v-text="family.donation_area.area_name"></td>
                               <td v-text="family.type"></td>
                               <td>
+                                <p>
+                                  <b>Elderly: </b><span v-text="family.elderly"></span>&nbsp
+                                  <b>Adult: </b><span v-text="family.adult"></span>&nbsp
+                                  <b>Children: </b><span v-text="family.children"></span>
+                                </p>
                                 <p><b>Total: </b><span v-text="family.total_member"></span></p>
-                                <p><b>Elderly: </b><span v-text="family.elderly"></span></p>
-                                <p><b>Adult: </b><span v-text="family.adult"></span></p>
-                                <p><b>Children: </b><span v-text="family.children"></span></p>
                               </td>
-                              <td>
-                                <p><b>Respiratory: </b><span v-text="family.respiratory"></span></p>
-                                <p><b>Diabetes: </b><span v-text="family.diabetes"></span></p>
-                                <p><b>Heart: </b><span v-text="family.heart"></span></p>
-                                <p><b>Smoker: </b><span v-text="family.smoker"></span></p>
-                              </td>
+                              <td v-text="family.medications"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditFamily(family)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                 <button style="margin-bottom: 5px" @click="deleteFamily(family.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>

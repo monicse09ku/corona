@@ -6,7 +6,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form v-on:submit.prevent class="form-horizontal">
+    <form v-on:submit.prevent class="form-horizontal" accept-charset="utf-8">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
         <div class="col-md-3 col-sm-12">
@@ -30,9 +30,9 @@
           <label for="inputPassword3" class="control-label">আর্থিক অবস্থা কেমন</label>
           <select v-model="family.type" class="form-control" >
             <option disabled value="">Please select one</option>
-            <option value="Extreme Poor">Extreme Poor</option>
-            <option value="Poor">Poor</option>
-            <option value="Not Poor">Not Poor</option>
+            <option value="Extreme Poor">অত্যন্ত গরীব</option>
+            <option value="Poor">গরীব</option>
+            <option value="Not Poor">গরীব নয়</option>
           </select>
         </div>
         <div class="col-md-3 col-sm-12">
@@ -66,21 +66,23 @@
           <label for="inputPassword3" class="control-label">ঝুকিপূর্ণ এলাকা/মানুষের স্পর্শ?</label>
           <select v-model="family.contact_history" class="form-control" >
             <option disabled value="">Please select one</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
+            <option value="0">না</option>
+            <option value="1">হ্যা</option>
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">ব্যবহৃত ওষুধের ধরণ?</label>
-          <select v-model="family.smoker" class="form-control" multiple="">
+          <multiselect v-model="family.medications" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Pick some" label="name" track-by="name">
+          </multiselect>
+          <!-- <select v-model="family.smoker" class="form-control" multiple="">
             <option disabled value="">Please select one</option>
             <option value="Respiratory">শ্বাসতন্ত্</option>
             <option value="Diabetes">ডায়াবেটিস</option>
             <option value="Blood Pressure">রক্তচাপ</option>
             <option value="Smoking">ধূমপান</option>
-          </select>
+          </select> -->
         </div>
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-8 col-sm-12">
           <label for="inputEmail3" class="control-label">অন্য কিছু</label>
           <textarea type="text" v-model="family.details" class="form-control"></textarea> 
         </div>

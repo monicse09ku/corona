@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Family extends Model
 {
-    protected $fillable = ['name', 'phone', 'donation_area_id','type', 'total_member', 'elderly','adult', 'children', 'smoker','respiratory', 'diabetes', 'heart', 'details', 'contact_history'];
+    protected $fillable = ['name', 'phone', 'donation_area_id','type', 'total_member', 'elderly','adult', 'children', 'medications', 'details', 'contact_history'];
 
     /**
      * Get the post that owns the comment.

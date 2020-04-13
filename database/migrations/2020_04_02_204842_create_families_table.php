@@ -23,10 +23,7 @@ class CreateFamiliesTable extends Migration
             $table->integer('elderly')->default(0);
             $table->integer('adult')->default(0);
             $table->integer('children')->default(0);
-            $table->integer('smoker')->default(0);
-            $table->integer('respiratory')->default(0);
-            $table->integer('diabetes')->default(0);
-            $table->integer('heart')->default(0);
+            $table->text('medications')->nullable();
             $table->text('details')->nullable();
             $table->boolean('contact_history')->default(0);
             $table->timestamps();

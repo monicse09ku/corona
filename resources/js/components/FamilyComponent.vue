@@ -1,11 +1,22 @@
 <script>
+    import Multiselect from 'vue-multiselect'
+    
     export default {
+        components: {
+            Multiselect
+        },    
         mounted() {
             this.loading = true
             setTimeout(() => this.fetchFamilies(), 1000)  
         },
         data(){
             return {
+                options: [
+                    { name: 'শ্বাসতন্ত্', language: 'Respiratory' },
+                    { name: 'ডায়াবেটিস', language: 'Diabetes' },
+                    { name: 'রক্তচাপ', language: 'Blood Pressure' },
+                    { name: 'ধূমপান', language: 'Smoking' }
+                ],
                 families: [],
                 family: {
                     name: '',
@@ -15,11 +26,7 @@
                     elderly: '',
                     adult: '',
                     children: '',
-                    smoker: '',
-                    respiratory: '',
-                    diabetes: '',
-                    heart: '',
-                    details: '',
+                    medications: [],
                     contact_history: 0,
                 },
                 family_id: '',
@@ -46,10 +53,7 @@
                     elderly : this.family.elderly,
                     adult : this.family.adult,
                     children : this.family.children,
-                    smoker : this.family.smoker,
-                    respiratory : this.family.respiratory,
-                    diabetes : this.family.diabetes,
-                    heart : this.family.heart,
+                    medications : this.family.medications,
                     details : this.family.details,
                     contact_history : this.family.contact_history
                 }
@@ -79,10 +83,7 @@
                         this.family.elderly = ''
                         this.family.adult = ''
                         this.family.children = ''
-                        this.family.smoker = ''
-                        this.family.respiratory = ''
-                        this.family.diabetes = ''
-                        this.family.heart = ''
+                        this.family.medications = []
                         this.family.details = ''
                         this.family.contact_history = ''
                     }else{
@@ -102,10 +103,7 @@
                 this.family.elderly = data.elderly
                 this.family.adult = data.adult
                 this.family.children = data.children
-                this.family.smoker = data.smoker
-                this.family.respiratory = data.respiratory
-                this.family.diabetes = data.diabetes
-                this.family.heart = data.heart
+                this.family.medications = []
                 this.family.details = data.details
                 this.family.contact_history = data.contact_history
             },

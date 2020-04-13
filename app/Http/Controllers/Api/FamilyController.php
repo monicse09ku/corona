@@ -30,7 +30,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
@@ -38,7 +38,20 @@ class FamilyController extends ApiBaseController
             return $this->respondValidationError('Parameters failed validation');
         }
 
+        $family = Family::where('phone', $request->phone)->first();
+
+        if(!empty($family)){
+            return $this->respondValidationError('Family Already Exists');
+        }
+
         try{
+            $raw_medications = [];
+            foreach ($request->medications as $key => $value) {
+                array_push($raw_medications, $value['language']);
+            }
+            
+            $medications = implode(', ', $raw_medications);
+            
             Family::create([
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
@@ -48,10 +61,7 @@ class FamilyController extends ApiBaseController
                     'elderly' => !empty($request->elderly) ? $request->elderly : 0,
                     'adult' => !empty($request->adult) ? $request->adult : 0,
                     'children' => !empty($request->children) ? $request->children : 0,
-                    'smoker' => !empty($request->smoker) ? $request->smoker : 0,
-                    'respiratory' => !empty($request->respiratory) ? $request->respiratory : 0,
-                    'diabetes' => !empty($request->diabetes) ? $request->diabetes : 0,
-                    'heart' => !empty($request->heart) ? $request->heart : 0,
+                    'medications' => $medications,
                     'details' => $request->details,
                     'contact_history' => $request->contact_history
                 ]);
@@ -73,7 +83,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|integer',
             'type' => 'required',
         ]);
 
@@ -82,7 +92,7 @@ class FamilyController extends ApiBaseController
         }
 
         try{
-            Family::where('id', $id)->update([
+            $data = [
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
                     'phone' => $request->phone,
@@ -91,13 +101,21 @@ class FamilyController extends ApiBaseController
                     'elderly' => $request->elderly,
                     'adult' => $request->adult,
                     'children' => $request->children,
-                    'smoker' => $request->smoker,
-                    'respiratory' => $request->respiratory,
-                    'diabetes' => $request->diabetes,
-                    'heart' => $request->heart,
                     'details' => $request->details,
                     'contact_history' => $request->contact_history
-                ]);
+                ];
+
+            if(!empty($request->medications)){
+                $medications = [];
+                foreach ($request->medications as $key => $value) {
+                    array_push($medications, $value['language']);
+                }
+                
+                $data['medications'] = implode(', ', $medications);
+            }
+            
+
+            Family::where('id', $id)->update($data);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
             return $this->respondInternalError($e->getMessage());
