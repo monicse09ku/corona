@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 
 @section('content')
-<user-component inline-template>
+<profile-component inline-template>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -58,7 +58,7 @@
     </div>
 
 
-</user-component>
+</profile-component>
 
 
 

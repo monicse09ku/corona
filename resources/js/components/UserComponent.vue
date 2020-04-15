@@ -2,43 +2,58 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchUser(), 1000) 
+            setTimeout(() => this.fetchUsers(), 1000)  
         },
         data(){
             return {
-                name: '',
-                email: '',
-                password: '',
-                confirmPassword: '',
+                users: [],
+                user: {
+                    name: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                    phone: '',
+                    role: '',
+                    status: '',
+                },
+                user_id: '',
+                pagination:{},
+                edit:false,
+                showUserForm:false,
             }
 
         },
         methods: {
-            fetchUser(){
-                axios.get('api/user')
+            fetchUsers(){
+                axios.get('api/users')
                 .then( res => {
-                    this.name = res.data.name
-                    this.email = res.data.email
+                    this.users = res.data.data
+                    console.log(res.data.data)
                 })
             },
             saveUser(){
-            
                 let formData = {
-                    name : this.name,
-                    email : this.email,
-                    password : this.password,
-                    confirmPassword : this.confirmPassword,
+                    name : this.user.name,
+                    email : this.user.email,
+                    phone : this.user.phone,
+                    password : this.user.password,
+                    confirmPassword : this.user.confirmPassword,
+                    role : this.user.role,
+                    status : this.user.status,
                 }
 
-                if(this.password !== this.confirmPassword){
-                    alert('Password Mismatch')
-                    return
+                if(!this.user_id){
+                    if(this.user.password !== this.user.confirmPassword){
+                        alert('Password and Confirm Password mismatch')
+                        return
+                    }
                 }
 
-                let url = `api/user`
+                let method = !this.user_id ? 'post' : 'put'
+                let url = !this.user_id ? `api/users` : `api/users/${this.user_id}`
 
                 axios({
-                  method: 'post',
+                  method: method,
                   url: url,
                   data: formData,
                   validateStatus: (status) => {
@@ -49,15 +64,51 @@
                 }).then(response => {
                     if(response.status === 200){
                         alert('Success')
+                        this.fetchUsers()
 
-                        this.password = ''
-                        this.confirmPassword = ''
+                        this.showUserForm = false
+                        this.user.name = ''
+                        this.user.email = ''
+                        this.user.phone = ''
+                        this.user.password = ''
+                        this.user.confirmPassword = ''
+                        this.user.role = ''
+                        this.user.status = ''
                     }else{
                         alert(response.data.error.message)
                     }
                 });  
                 
             },
+
+            EditUser(data){
+                this.showUserForm = true
+                this.user_id = data.id
+                this.user.name = data.name
+                this.user.email = data.email
+                this.user.phone = data.phone
+                this.user.role = data.role
+                this.user.status = data.status
+            },
+
+            deleteUser(id) {
+                if (confirm('Are You Sure?')) {
+
+                    axios['delete'](`api/users/${id}`)
+                    .then(response => {
+                        alert('User Removed')
+                        this.fetchUsers()
+                    })
+                    .catch(err => console.log(err));
+                }
+            },
+            toggoleUserForm(){
+                this.showUserForm = !this.showUserForm
+            },
+            closeUserForm(){
+                this.user_id = ''
+                this.showUserForm = false
+            }
         },
     }
 </script>

@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\VolunteerResource;
-use App\Models\Volunteer;
+use App\Http\Resources\Api\UserResource;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
-class VolunteerController extends ApiBaseController
+class UserController extends ApiBaseController
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class VolunteerController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return VolunteerResource::collection(Volunteer::with('organisation')->paginate(request('limit') ?? 10));
+        return UserResource::collection(User::paginate(request('limit') ?? 10));
     }
 
     /**
@@ -29,19 +30,32 @@ class VolunteerController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
+            'email' => 'required|email',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'password' => 'required',
+            'confirmPassword' => 'required',
+            'role' => 'required',
+            'status' => 'required',
         ]);
 
         if ($validator->fails()) {
             return $this->respondValidationError('Parameters failed validation');
         }
 
+        if ($request->password != $request->confirmPassword) {
+            return $this->respondValidationError('Password and Confirm Password mismatch.');
+        }
+
         try{
-            Volunteer::create([
+            
+            User::create([
                     'name' => $request->name,
+                    'email' => $request->email,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
+                    'password' => Hash::make($request->password),
+                    'email_verified_at' => date('Y-m-d H:i:s'),
+                    'role' => $request->role,
+                    'status' => $request->status,
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -60,8 +74,10 @@ class VolunteerController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
+            'email' => 'required|email',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'role' => 'required',
+            'status' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -69,11 +85,25 @@ class VolunteerController extends ApiBaseController
         }
 
         try{
-            Volunteer::where('id', $id)->update([
+            $user = User::findOrFail($id);
+            
+            $data = [
                     'name' => $request->name,
+                    'email' => $request->email,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
-                ]);
+                    'role' => $request->role,
+                    'status' => $request->status,
+                ];
+            
+            if(!empty($request->password)){
+            	if ($request->password != $request->confirmPassword) {
+		            return $this->respondValidationError('Password and Confirm Password must be same.');
+		        }
+
+            	$data['password'] = Hash::make($request->password);
+            }
+
+            $user->update($data);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
             return $this->respondInternalError($e->getMessage());
@@ -89,11 +119,12 @@ class VolunteerController extends ApiBaseController
     public function destroy($id)
     {
         try {
-            if (Volunteer::findOrFail($id)->delete()) {
+            $user = User::findOrFail($id);
+
+            if ($user->delete()) {
                 return $this->respondSuccess('DELETE_SUCCESS');
             }
         } catch (\Exception $e) {
-            return $this->respondError($e->getMessage());
             return $this->respondError('DELETE_FAIL');
         }
     }

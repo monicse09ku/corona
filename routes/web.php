@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/volunteers', 'Volunteer\VolunteerController@index');
 	Route::get('/donors', 'Donor\DonorController@index');
 	Route::get('/expenses', 'Expense\ExpenseController@index');
-
-	Route::get('/profile', 'UserController@index');
+	Route::get('/users', 'UserController@index');
+	Route::get('/profile', 'UserController@profile');
 
 });

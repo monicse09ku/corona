@@ -21,10 +21,11 @@ Route::apiResource('families', 'Api\FamilyController')->middleware('auth:api');
 Route::apiResource('organisations', 'Api\OrganisationController')->middleware('auth:api');
 Route::apiResource('volunteers', 'Api\VolunteerController')->middleware('auth:api');
 Route::apiResource('donors', 'Api\DonorController')->middleware('auth:api');
+Route::apiResource('users', 'Api\UserController')->middleware('auth:api');
 Route::apiResource('expenses', 'Api\ExpenseController')->middleware('auth:api');
 
 
 Route::get('donation-area-families/{id}', 'Api\DonationController@donationAreaFamilies')->middleware('auth:api');
 
-Route::get('user', 'Api\TransactionController@user')->middleware('auth:api');
-Route::post('user', 'Api\TransactionController@userUpdate')->middleware('auth:api');
+Route::get('profile', 'Api\TransactionController@user')->middleware('auth:api');
+Route::post('profile', 'Api\TransactionController@userUpdate')->middleware('auth:api');

@@ -83,7 +83,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required|integer',
+            'phone' => 'required|regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
