@@ -57,6 +57,7 @@ a{
 }
 .login-reg-panel #label-login, 
 .login-reg-panel #label-register{
+    background: #fff;
     border:1px solid #9E9E9E;
     padding:5px 5px;
     width:150px;
