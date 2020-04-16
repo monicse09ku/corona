@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.homepage');
 });
 
-Route::get('/frontend', function () {
-    return view('frontend.homepage');
+Route::get('/user-area', function () {
+    return view('welcome');
 });
 
 Auth::routes();

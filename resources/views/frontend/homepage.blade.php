@@ -54,6 +54,7 @@
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#blog">Blog</a></li>-->
               <li><a href="#contact">Contact</a></li>
+              <li><a href="{{url('/user-area')}}">Login</a></li>
             </ul>
           </nav>
         </div>
