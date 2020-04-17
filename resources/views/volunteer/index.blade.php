@@ -32,7 +32,7 @@
                             <tr>
                               <th>Name</th>
                               <th>Phone</th>
-                              <th>Admin</th>
+                              <th>Organisation</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="volunteer in volunteers">

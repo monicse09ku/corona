@@ -16,7 +16,13 @@ class DonorController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return DonorResource::collection(Donor::paginate(request('limit') ?? 10));
+        if(\Auth::user()->role == 'org_admin'){
+            return DonorResource::collection(Donor::with('organisation')->whereHas('organisation', function ($query) {
+                    $query->where('user_id', \Auth::user()->id);
+                })->paginate(request('limit') ?? 10));
+        }else{
+            return DonorResource::collection(Donor::with('organisation')->paginate(request('limit') ?? 10));
+        }
     }
 
     /**
@@ -30,7 +36,8 @@ class DonorController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
             'medium' => 'required',
-            'amount' => 'required|integer'
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -48,7 +55,8 @@ class DonorController extends ApiBaseController
                     'summary' => $request->summary,
                     'medium' => $request->medium,
                     'amount' => $request->amount,
-                    'vouchar' => $imageName
+                    'vouchar' => $imageName,
+                    'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -68,7 +76,8 @@ class DonorController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
             'medium' => 'required',
-            'amount' => 'required|integer'
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -82,6 +91,7 @@ class DonorController extends ApiBaseController
                     'summary' => $request->summary,
                     'medium' => $request->medium,
                     'amount' => $request->amount,
+                    'org_id' => $request->org_id
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();

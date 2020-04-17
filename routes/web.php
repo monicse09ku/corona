@@ -35,4 +35,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/users', 'UserController@index');
 	Route::get('/profile', 'UserController@profile');
 
+	Route::group([
+        'middleware' => 'roles',
+        'roles' => ['super_admin']
+    ], function () {
+        Route::get('/users', 'UserController@index');
+    });
+
 });

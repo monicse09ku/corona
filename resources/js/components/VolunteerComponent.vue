@@ -12,7 +12,7 @@
                     phone: '',
                     org_id: '',
                 },
-                org_id: '',
+                volunteer_id: '',
                 pagination:{},
                 edit:false,
                 showVolunteerForm:false,

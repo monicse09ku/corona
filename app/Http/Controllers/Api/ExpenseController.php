@@ -16,7 +16,13 @@ class ExpenseController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return ExpenseResource::collection(Expense::paginate(request('limit') ?? 10));
+        if(\Auth::user()->role == 'org_admin'){
+            return ExpenseResource::collection(Expense::with('organisation')->whereHas('organisation', function ($query) {
+                    $query->where('user_id', \Auth::user()->id);
+                })->paginate(request('limit') ?? 10));
+        }else{
+            return ExpenseResource::collection(Expense::with('organisation')->paginate(request('limit') ?? 10));
+        }
     }
 
     /**
@@ -29,7 +35,8 @@ class ExpenseController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
-            'amount' => 'required|integer'
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -46,7 +53,8 @@ class ExpenseController extends ApiBaseController
             Expense::create([
                     'summary' => $request->summary,
                     'amount' => $request->amount,
-                    'vouchar' => $imageName
+                    'vouchar' => $imageName,
+                    'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -65,7 +73,8 @@ class ExpenseController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
-            'amount' => 'required|integer'
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -78,6 +87,7 @@ class ExpenseController extends ApiBaseController
             $data = [
                     'summary' => $request->summary,
                     'amount' => $request->amount,
+                    'org_id' => $request->org_id
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();

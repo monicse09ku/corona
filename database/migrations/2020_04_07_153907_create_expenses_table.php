@@ -18,6 +18,7 @@ class CreateExpensesTable extends Migration
             $table->string('summary');
             $table->integer('amount')->default(0);
             $table->string('vouchar')->nullable();
+            $table->bigInteger('org_id')->unsigned()->comment('organisation id');
             $table->timestamps();
         });
     }

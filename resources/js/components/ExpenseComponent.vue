@@ -10,6 +10,7 @@
                 expense: {
                     summary: '',
                     amount: '',
+                    org_id: '',
                 },
                 image: '',
                 expense_id: '',
@@ -34,6 +35,7 @@
                 formData.append('file', this.image);
                 formData.append('summary', this.expense.summary);
                 formData.append('amount', this.expense.amount);
+                formData.append('org_id', this.expense.org_id);
 
                 let url = !this.expense_id ? `api/expenses` : `api/expenses/${this.expense_id}?_method=PUT`
 
@@ -55,6 +57,7 @@
                         this.showExpenseForm = false
                         this.expense.summary = ''
                         this.expense.amount = ''
+                        this.expense.org_id = ''
                         this.image = ''
                     }else{
                         alert(response.data.error.message)
@@ -68,6 +71,7 @@
                 this.expense_id = data.id
                 this.expense.summary = data.summary
                 this.expense.amount = data.amount
+                this.expense.org_id = data.org_id
             },
 
             deleteExpense(id) {

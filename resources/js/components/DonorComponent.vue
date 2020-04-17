@@ -11,6 +11,7 @@
                     summary: '',
                     medium: '',
                     amount: '',
+                    org_id: '',
                 },
                 image: '',
                 donor_id: '',
@@ -36,6 +37,7 @@
                 formData.append('summary', this.donor.summary);
                 formData.append('medium', this.donor.medium);
                 formData.append('amount', this.donor.amount);
+                formData.append('org_id', this.donor.org_id);
 
                 let url = !this.donor_id ? `api/donors` : `api/donors/${this.donor_id}?_method=PUT`
 
@@ -58,6 +60,7 @@
                         this.donor.summary = ''
                         this.donor.medium = ''
                         this.donor.amount = ''
+                        this.donor.org_id = ''
                         this.image = ''
                     }else{
                         alert(response.data.error.message)
@@ -72,6 +75,7 @@
                 this.donor.summary = data.summary
                 this.donor.medium = data.medium
                 this.donor.amount = data.amount
+                this.donor.org_id = data.org_id
             },
 
             deleteDonor(id) {

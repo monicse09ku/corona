@@ -35,8 +35,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'admin',
             ],
             [
-                'name' => 'Donor',
-                'email' => 'donor@gmail.com',
+                'name' => 'Org Admin',
+                'email' => 'org_admin@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('12345678!@#'), // password
                 'remember_token' => Str::random(10),

@@ -16,7 +16,13 @@ class VolunteerController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return VolunteerResource::collection(Volunteer::with('organisation')->paginate(request('limit') ?? 10));
+        if(\Auth::user()->role == 'org_admin'){
+            return VolunteerResource::collection(Volunteer::with('organisation')->whereHas('organisation', function ($query) {
+                    $query->where('user_id', \Auth::user()->id);
+                })->paginate(request('limit') ?? 10));
+        }else{
+            return VolunteerResource::collection(Volunteer::with('organisation')->paginate(request('limit') ?? 10));
+        }
     }
 
     /**

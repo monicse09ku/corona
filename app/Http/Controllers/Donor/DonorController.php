@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Organisation;
+use Auth;
 
 class DonorController extends Controller
 {
@@ -14,7 +16,16 @@ class DonorController extends Controller
      */
     public function index()
     {
-        return view('donor.index');
+        if(Auth::user()->role == 'org_admin'){
+            $organisations = Organisation::where([
+                ['status', 'active'],
+                ['user_id', Auth::user()->id],
+            ])->get();
+        }else{
+            $organisations = Organisation::where('status', 'active')->get();
+        }
+
+        return view('donor.index', compact('organisations'));
     }
 
     /**

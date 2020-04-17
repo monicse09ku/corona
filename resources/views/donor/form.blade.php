@@ -23,14 +23,23 @@
             <option value="DBBL">DBBL</option>
           </select>
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">Amount</label>
           <input type="text" v-model="donor.amount" class="form-control"> 
         </div> 
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">Vouchar</label>
           <input type="file" class="form-control" v-on:change="onImageChange"> 
         </div> 
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Organisation</label>
+          <select v-model="donor.org_id" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach($organisations as $organisation)
+            <option value="{{$organisation->id}}">{{$organisation->name}}</option>
+            @endforeach
+          </select>
+        </div>
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
