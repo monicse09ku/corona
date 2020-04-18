@@ -42,7 +42,7 @@
                               <td v-text="donor.amount"></td>
                               <td>
                                 <span v-if="donor.vouchar">
-                                  <img height="100" width="100" :src="'public/images/donors/' + donor.vouchar">
+                                  <img height="100" width="100" :src="'public/images/donors/' + donor.org_id + '/' + donor.vouchar">
                                 </span>
                               </td>
                               <td>

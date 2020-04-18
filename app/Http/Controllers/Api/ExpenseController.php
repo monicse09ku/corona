@@ -47,7 +47,7 @@ class ExpenseController extends ApiBaseController
             $imageName = null;
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\expenses'), $imageName);
+                $request->file->move(public_path('images/expenses/' . $request->org_id), $imageName);
             }
 
             Expense::create([
@@ -91,10 +91,12 @@ class ExpenseController extends ApiBaseController
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\expenses'), $imageName);
+                $request->file->move(public_path('images/expenses/' . $request->org_id), $imageName);
 
                 if(!empty($expense->vouchar)){
-                    unlink(public_path('images\expenses\\') . $expense->vouchar);
+                    if(file_exists(public_path('images/expenses/' . $request->org_id) . '/' . $expense->vouchar)){
+                        unlink(public_path('images/expenses/' . $request->org_id) . '/' . $expense->vouchar);
+                    }
                 }
                 $data['vouchar'] = $imageName;
             }
@@ -118,7 +120,9 @@ class ExpenseController extends ApiBaseController
             $expense = Expense::findOrFail($id);
 
             if(!empty($expense->vouchar)){
-                unlink(public_path('images\expenses\\') . $expense->vouchar);
+                if(file_exists(public_path('images/expenses/' . $expense->org_id) . '/' . $expense->vouchar)){
+                    unlink(public_path('images/expenses/' . $expense->org_id) . '/' . $expense->vouchar);
+                }
             }
 
             if ($expense->delete()) {
