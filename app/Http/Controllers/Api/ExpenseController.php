@@ -17,11 +17,11 @@ class ExpenseController extends ApiBaseController
     public function index(Request $request)
     {
         if(\Auth::user()->role == 'org_admin'){
-            return ExpenseResource::collection(Expense::with('organisation')->whereHas('organisation', function ($query) {
+            return ExpenseResource::collection(Expense::with('organisation.org_admin')->whereHas('organisation.org_admin', function ($query) {
                     $query->where('user_id', \Auth::user()->id);
                 })->paginate(request('limit') ?? 10));
         }else{
-            return ExpenseResource::collection(Expense::with('organisation')->paginate(request('limit') ?? 10));
+            return ExpenseResource::collection(Expense::with('organisation.org_admin')->paginate(request('limit') ?? 10));
         }
     }
 

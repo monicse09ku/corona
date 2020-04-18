@@ -17,11 +17,11 @@ class DonorController extends ApiBaseController
     public function index(Request $request)
     {
         if(\Auth::user()->role == 'org_admin'){
-            return DonorResource::collection(Donor::with('organisation')->whereHas('organisation', function ($query) {
+            return DonorResource::collection(Donor::with('organisation.org_admin')->whereHas('organisation.org_admin', function ($query) {
                     $query->where('user_id', \Auth::user()->id);
                 })->paginate(request('limit') ?? 10));
         }else{
-            return DonorResource::collection(Donor::with('organisation')->paginate(request('limit') ?? 10));
+            return DonorResource::collection(Donor::with('organisation.org_admin')->paginate(request('limit') ?? 10));
         }
     }
 
@@ -48,7 +48,7 @@ class DonorController extends ApiBaseController
             $imageName = null;
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\donors'), $imageName);
+                $request->file->move(public_path('images/donors'), $imageName);
             }
 
             Donor::create([
@@ -95,10 +95,12 @@ class DonorController extends ApiBaseController
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\donors'), $imageName);
+                $request->file->move(public_path('images/donors'), $imageName);
 
                 if(!empty($donor->vouchar)){
-                    unlink(public_path('images\donors\\') . $donor->vouchar);
+                    if(file_exists(public_path('images/donors/') . $donor->vouchar)){
+                        unlink(public_path('images/donors/') . $donor->vouchar);
+                    }
                 }
                 $data['vouchar'] = $imageName;
             }
@@ -122,7 +124,9 @@ class DonorController extends ApiBaseController
             $donor = Donor::findOrFail($id);
 
             if(!empty($donor->vouchar)){
-                unlink(public_path('images\donors\\') . $donor->vouchar);
+                if(file_exists(public_path('images/donors/') . $donor->vouchar)){
+                    unlink(public_path('images/donors/') . $donor->vouchar);
+                }
             }
 
             if ($donor->delete()) {

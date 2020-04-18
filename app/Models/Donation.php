@@ -29,6 +29,6 @@ class Donation extends Model
      */
     public function organisation()
     {
-        return $this->belongsTo('App\Models\Organisation', 'org_id');
+        return $this->hasOne('App\Models\Organisation', 'id', 'org_id');
     }
 }

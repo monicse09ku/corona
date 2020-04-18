@@ -32,13 +32,11 @@
                             <tr>
                               <th>Name</th>
                               <th>Status</th>
-                              <th>Admin</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="organisation in organisations">
                               <td v-text="organisation.name"></td>
                               <td v-text="organisation.status"></td>
-                              <td v-text="organisation.user.name"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditOrganisation(organisation)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                 <button style="margin-bottom: 5px" @click="deleteOrganisation(organisation.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>

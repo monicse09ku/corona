@@ -26,6 +26,7 @@ class CreateFamiliesTable extends Migration
             $table->text('medications')->nullable();
             $table->text('details')->nullable();
             $table->boolean('contact_history')->default(0);
+            $table->bigInteger('created_by')->unsigned();
             $table->timestamps();
         });
     }

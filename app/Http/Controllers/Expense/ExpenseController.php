@@ -17,10 +17,9 @@ class ExpenseController extends Controller
     public function index()
     {
         if(Auth::user()->role == 'org_admin'){
-            $organisations = Organisation::where([
-                ['status', 'active'],
-                ['user_id', Auth::user()->id],
-            ])->get();
+            $organisations = Organisation::with('org_admin')->whereHas('org_admin', function ($query) {
+                    $query->where('user_id', Auth::user()->id);
+                })->get();
         }else{
             $organisations = Organisation::where('status', 'active')->get();
         }

@@ -63,8 +63,9 @@
                         this.donation.donation_area_id = ''
                         this.donation.family_id = ''
                         this.donation.org_id = ''
+                        this.donation_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

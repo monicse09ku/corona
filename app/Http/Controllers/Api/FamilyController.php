@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\FamilyResource;
 use App\Models\Family;
+use Auth;
 
 class FamilyController extends ApiBaseController
 {
@@ -63,7 +64,8 @@ class FamilyController extends ApiBaseController
                     'children' => !empty($request->children) ? $request->children : 0,
                     'medications' => $medications,
                     'details' => $request->details,
-                    'contact_history' => $request->contact_history
+                    'contact_history' => $request->contact_history,
+                    'created_by' => Auth::user()->id,
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){

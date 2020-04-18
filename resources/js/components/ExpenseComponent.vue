@@ -59,8 +59,9 @@
                         this.expense.amount = ''
                         this.expense.org_id = ''
                         this.image = ''
+                        this.expense_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

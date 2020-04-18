@@ -41,7 +41,6 @@
                             <tr v-for="family in families">
                               <td v-if="family.contact_history" style="color: red; font-weight: bold;" v-text="family.name"></td>
                               <td v-else style="color: green;font-weight: bold;" v-text="family.name"></td>
-                              <td v-text="family.name"></td>
                               <td v-text="family.phone"></td>
                               <td v-text="family.donation_area.area_name"></td>
                               <td v-text="family.type"></td>

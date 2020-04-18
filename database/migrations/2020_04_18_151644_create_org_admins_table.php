@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrganisationsTable extends Migration
+class CreateOrgAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateOrganisationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('organisations', function (Blueprint $table) {
+        Schema::create('org_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('status')->default('active');
+            $table->bigInteger('user_id')->unsigned()->comment('org admin id');
+            $table->bigInteger('org_id')->unsigned()->comment('org id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateOrganisationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organisations');
+        Schema::dropIfExists('org_admins');
     }
 }

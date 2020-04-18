@@ -30,7 +30,7 @@
         @can('visible', 'super-admin:admin')
           <li @if( url()->current() == url('/users')) class="active" @endif><a href="{{ url('/users') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
           <li @if( url()->current() == url('/organisations')) class="active" @endif><a href="{{ url('/organisations') }}"><i class="fa fa-sitemap"></i> <span>Organisations</span></a></li>
-          
+          <li @if( url()->current() == url('/org-admins')) class="active" @endif><a href="{{ url('/org-admins') }}"><i class="fa fa-users"></i> <span>Organisation Admins</span></a></li>
           <li @if( url()->current() == url('/donation-areas')) class="active" @endif><a href="{{ url('/donation-areas') }}"><i class="fa fa-map-marker"></i> <span>Donation Areas</span></a></li>
         @endcan
         @can('visible', 'super-admin:admin:org_admin')

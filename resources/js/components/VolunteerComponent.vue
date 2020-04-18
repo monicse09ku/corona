@@ -55,8 +55,9 @@
                         this.volunteer.name = ''
                         this.volunteer.phone = ''
                         this.volunteer.org_id = ''
+                        this.volunteer_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

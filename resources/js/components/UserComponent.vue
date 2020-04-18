@@ -74,8 +74,9 @@
                         this.user.confirmPassword = ''
                         this.user.role = ''
                         this.user.status = ''
+                        this.user_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

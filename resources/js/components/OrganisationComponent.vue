@@ -10,7 +10,6 @@
                 organisation: {
                     name: '',
                     status: '',
-                    user_id: '',
                 },
                 org_id: '',
                 pagination:{},
@@ -31,7 +30,6 @@
                 let formData = {
                     name : this.organisation.name,
                     status : this.organisation.status,
-                    user_id : this.organisation.user_id
                 }
 
                 let method = !this.organisation_id ? 'post' : 'put'
@@ -52,10 +50,11 @@
                         this.fetchOrganisations()
 
                         this.showOrganisationForm = false
-                        this.organisation.area_name = ''
+                        this.organisation.name = ''
                         this.organisation.status = ''
+                        this.org_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 
@@ -66,7 +65,6 @@
                 this.organisation_id = data.id
                 this.organisation.name = data.name
                 this.organisation.status = data.status
-                this.organisation.user_id = data.user_id
             },
 
             deleteOrganisation(id) {

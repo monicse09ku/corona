@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Donation;
+namespace App\Http\Controllers\Organisation;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\DonationArea;
+use App\User;
 use App\Models\Organisation;
-use Auth;
 
-class DonationController extends Controller
+class OrgAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +16,9 @@ class DonationController extends Controller
      */
     public function index()
     {
-        $donation_areas = DonationArea::get();
-        if(Auth::user()->role == 'org_admin'){
-            $organisations = Organisation::with('org_admin')->whereHas('org_admin', function ($query) {
-                    $query->where('user_id', Auth::user()->id);
-                })->get();
-        }else{
-            $organisations = Organisation::where('status', 'active')->get();
-        }
-        
-        return view('donation.index', compact('donation_areas', 'organisations'));
+        $organisations = Organisation::get();
+        $users = User::where('role', 'org_admin')->get();
+        return view('org_admin.index', compact('users', 'organisations'));
     }
 
     /**

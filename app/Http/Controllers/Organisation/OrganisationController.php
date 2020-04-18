@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Organisation;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
 
 class OrganisationController extends Controller
 {
@@ -15,8 +14,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        $org_admins = User::where('role', 'org_admin')->get();
-        return view('organisation.index', compact('org_admins'));
+        return view('organisation.index');
     }
 
     /**

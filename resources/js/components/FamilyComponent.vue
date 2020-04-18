@@ -86,8 +86,9 @@
                         this.family.medications = []
                         this.family.details = ''
                         this.family.contact_history = ''
+                        this.family_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

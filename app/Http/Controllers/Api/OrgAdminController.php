@@ -4,25 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\VolunteerResource;
-use App\Models\Volunteer;
+use App\Http\Resources\Api\OrgAdminResource;
+use App\Models\OrgAdmin;
 
-class VolunteerController extends ApiBaseController
+class OrgAdminController extends ApiBaseController
 {
-    /**
+   	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        if(\Auth::user()->role == 'org_admin'){
-            return VolunteerResource::collection(Volunteer::with('organisation.org_admin')->whereHas('organisation.org_admin', function ($query) {
-                    $query->where('user_id', \Auth::user()->id);
-                })->paginate(request('limit') ?? 10));
-        }else{
-            return VolunteerResource::collection(Volunteer::with('organisation.org_admin')->paginate(request('limit') ?? 10));
-        }
+        return OrgAdminResource::collection(OrgAdmin::with('user', 'organisation')->paginate(request('limit') ?? 10));
     }
 
     /**
@@ -34,9 +28,8 @@ class VolunteerController extends ApiBaseController
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'user_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -44,10 +37,9 @@ class VolunteerController extends ApiBaseController
         }
 
         try{
-            Volunteer::create([
-                    'name' => $request->name,
-                    'phone' => $request->phone,
-                    'org_id' => $request->org_id
+            OrgAdmin::create([
+                    'org_id' => $request->org_id,
+                    'user_id' => $request->user_id
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -65,9 +57,8 @@ class VolunteerController extends ApiBaseController
     public function update(Request $request, $id)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'user_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -75,10 +66,9 @@ class VolunteerController extends ApiBaseController
         }
 
         try{
-            Volunteer::where('id', $id)->update([
-                    'name' => $request->name,
-                    'phone' => $request->phone,
-                    'org_id' => $request->org_id
+            OrgAdmin::where('id', $id)->update([
+                    'org_id' => $request->org_id,
+                    'user_id' => $request->user_id
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -95,7 +85,7 @@ class VolunteerController extends ApiBaseController
     public function destroy($id)
     {
         try {
-            if (Volunteer::findOrFail($id)->delete()) {
+            if (OrgAdmin::findOrFail($id)->delete()) {
                 return $this->respondSuccess('DELETE_SUCCESS');
             }
         } catch (\Exception $e) {

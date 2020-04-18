@@ -62,8 +62,9 @@
                         this.donor.amount = ''
                         this.donor.org_id = ''
                         this.image = ''
+                        this.donor_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 

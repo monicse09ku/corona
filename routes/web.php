@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/donations', 'Donation\DonationController@index');
 	Route::get('/families', 'Family\FamilyController@index');
 	Route::get('/organisations', 'Organisation\OrganisationController@index');
+	Route::get('/org-admins', 'Organisation\OrgAdminController@index');
 	Route::get('/volunteers', 'Volunteer\VolunteerController@index');
 	Route::get('/donors', 'Donor\DonorController@index');
 	Route::get('/expenses', 'Expense\ExpenseController@index');
