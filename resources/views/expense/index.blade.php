@@ -40,7 +40,7 @@
                               <td v-text="expense.amount"></td>
                               <td>
                                 <span v-if="expense.vouchar">
-                                  <img height="100" width="100" :src="'public/images/expenses/' + expense.vouchar">
+                                  <img height="100" width="100" :src="'public/images/expenses/' + expense.org_id + '/' + expense.vouchar">
                                 </span>
                               </td>
                               <td>

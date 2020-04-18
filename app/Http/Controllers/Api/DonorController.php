@@ -48,7 +48,7 @@ class DonorController extends ApiBaseController
             $imageName = null;
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images/donors'), $imageName);
+                $request->file->move(public_path('images/donors/' . $request->org_id), $imageName);
             }
 
             Donor::create([
@@ -95,11 +95,11 @@ class DonorController extends ApiBaseController
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images/donors'), $imageName);
+                $request->file->move(public_path('images/donors/' . $request->org_id), $imageName);
 
                 if(!empty($donor->vouchar)){
-                    if(file_exists(public_path('images/donors/') . $donor->vouchar)){
-                        unlink(public_path('images/donors/') . $donor->vouchar);
+                    if(file_exists(public_path('images/donors/' . $request->org_id) . '/' . $donor->vouchar)){
+                        unlink(public_path('images/donors/' . $request->org_id) . '/' . $donor->vouchar);
                     }
                 }
                 $data['vouchar'] = $imageName;
@@ -124,8 +124,8 @@ class DonorController extends ApiBaseController
             $donor = Donor::findOrFail($id);
 
             if(!empty($donor->vouchar)){
-                if(file_exists(public_path('images/donors/') . $donor->vouchar)){
-                    unlink(public_path('images/donors/') . $donor->vouchar);
+                if(file_exists(public_path('images/donors/' . $donor->org_id) . '/' . $donor->vouchar)){
+                    unlink(public_path('images/donors/' . $donor->org_id) . '/' . $donor->vouchar);
                 }
             }
 
