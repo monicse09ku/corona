@@ -52,9 +52,7 @@
 <script src="{{asset('js/frontend/jquery-ui.min.js')}}"></script>
 <script src="{{asset('js/frontend/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/frontend/jquery-plugin-collection.js')}}"></script>
-<!-- Revolution Slider -->
-<script src="{{asset('js/frontend/revolution-slider/js/jquery.themepunch.tools.min.js')}}"></script>
-<script src="{{asset('js/frontend/revolution-slider/js/jquery.themepunch.revolution.min.js')}}"></script>
+
 <!-- Custom JS -->
 <script src="{{asset('js/frontend/custom.js')}}"></script>
 

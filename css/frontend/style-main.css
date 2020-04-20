@@ -3208,7 +3208,7 @@ form .error {
   top: 45%;
 }
 .fullwidth-carousel .carousel-item {
-  min-height: 615px;
+  min-height: 600px;
   width: 100%;
 }
 .fullwidth-carousel.blog-fullwidth-carousel .carousel-item {
@@ -6539,6 +6539,23 @@ blockquote p {
 .working-process.theme-colored li a {
   color: #fff;
 }
+
+/*
+* Donation Area Styles
+-----------------
+*/
+.acc-details{
+  padding: 0 20px;
+  margin-top: 20px;
+}
+.logo-outer {
+  padding: 5px 10px;
+}
+
+.bkash-border{border: 1px solid #DF146E;}
+.nogod-border{border: 1px solid #FF0000;}
+.rocket-border{border: 1px solid #7B0C83;}
+.dbbl-border{border: 1px solid #008837;}
 /*
  * Widgets.less
  * -----------------------------------------------

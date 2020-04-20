@@ -17,7 +17,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "flaticon-set-charity";
-    src: url("../fonts/flaticons/flaticon-set-charity.svg#flaticon-set-charity") format("svg");
+    src: url("css/fonts/flaticons/flaticon-set-charity.svg#flaticon-set-charity") format("svg");
   }
 }
 
