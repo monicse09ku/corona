@@ -18,7 +18,7 @@ class DonationController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return DonationResource::collection(Donation::with('donation_area', 'family', 'organisation')->paginate(request('limit') ?? 10));
+        return DonationResource::collection(Donation::with('donation_area', 'organisation')->paginate(request('limit') ?? 10));
     }
 
     /**
@@ -31,7 +31,7 @@ class DonationController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
-            'family_id' => 'required',
+            'family_ids' => 'required',
             'org_id' => 'required'
         ]);
 
@@ -42,7 +42,7 @@ class DonationController extends ApiBaseController
         try{
             Donation::create([
                     'donation_area_id' => $request->donation_area_id,
-                    'family_id' => $request->family_id,
+                    'family_ids' => $request->family_ids,
                     'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
@@ -62,7 +62,7 @@ class DonationController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
-            'family_id' => 'required',
+            'family_ids' => 'required',
             'org_id' => 'required'
         ]);
 
@@ -73,7 +73,7 @@ class DonationController extends ApiBaseController
         try{
             Donation::where('id', $id)->update([
                     'donation_area_id' => $request->donation_area_id,
-                    'family_id' => $request->family_id,
+                    'family_ids' => $request->family_ids,
                     'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');

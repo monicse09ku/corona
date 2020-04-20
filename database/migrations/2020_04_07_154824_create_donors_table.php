@@ -17,6 +17,7 @@ class CreateDonorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('summary');
             $table->string('medium');
+            $table->string('account');
             $table->integer('amount')->default(0);
             $table->string('vouchar')->nullable();
             $table->bigInteger('org_id')->unsigned()->comment('organisation id');

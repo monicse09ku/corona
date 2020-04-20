@@ -9,6 +9,8 @@
                 expenses: [],
                 expense: {
                     summary: '',
+                    medium: '',
+                    account: '',
                     amount: '',
                     org_id: '',
                 },
@@ -34,6 +36,8 @@
                 let formData = new FormData();
                 formData.append('file', this.image);
                 formData.append('summary', this.expense.summary);
+                formData.append('medium', this.expense.medium);
+                formData.append('account', this.expense.account);
                 formData.append('amount', this.expense.amount);
                 formData.append('org_id', this.expense.org_id);
 
@@ -56,6 +60,8 @@
 
                         this.showExpenseForm = false
                         this.expense.summary = ''
+                        this.expense.medium = ''
+                        this.expense.account = ''
                         this.expense.amount = ''
                         this.expense.org_id = ''
                         this.image = ''
@@ -71,6 +77,8 @@
                 this.showExpenseForm = true
                 this.expense_id = data.id
                 this.expense.summary = data.summary
+                this.expense.medium = data.medium
+                this.expense.account = data.account
                 this.expense.amount = data.amount
                 this.expense.org_id = data.org_id
             },

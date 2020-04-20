@@ -11,6 +11,7 @@
                     name: '',
                     phone: '',
                     org_id: '',
+                    expertise: '',
                 },
                 volunteer_id: '',
                 pagination:{},
@@ -31,7 +32,8 @@
                 let formData = {
                     name : this.volunteer.name,
                     phone : this.volunteer.phone,
-                    org_id : this.volunteer.org_id
+                    org_id : this.volunteer.org_id,
+                    expertise : this.volunteer.expertise,
                 }
 
                 let method = !this.volunteer_id ? 'post' : 'put'
@@ -55,6 +57,7 @@
                         this.volunteer.name = ''
                         this.volunteer.phone = ''
                         this.volunteer.org_id = ''
+                        this.volunteer.expertise = ''
                         this.volunteer_id = ''
                     }else{
                         alert('Something Went Wrong!!')
@@ -69,6 +72,7 @@
                 this.volunteer.name = data.name
                 this.volunteer.phone = data.phone
                 this.volunteer.org_id = data.org_id
+                this.volunteer.expertise = data.expertise
             },
 
             deleteVolunteer(id) {

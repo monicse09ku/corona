@@ -32,6 +32,7 @@
                             <tr>
                               <th>Summary</th>
                               <th>Medium</th>
+                              <th>Account</th>
                               <th>Amount</th>
                               <th>Vouchar</th>
                               <th style="width: 120px">Actions</th>
@@ -39,6 +40,7 @@
                             <tr v-for="donor in donors">
                               <td v-text="donor.summary"></td>
                               <td v-text="donor.medium"></td>
+                              <td v-text="donor.account"></td>
                               <td v-text="donor.amount"></td>
                               <td>
                                 <span v-if="donor.vouchar">

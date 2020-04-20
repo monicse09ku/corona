@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Donor extends Model
 {
-    protected $fillable = ['summary', 'medium', 'amount', 'vouchar', 'org_id'];
+    protected $fillable = ['summary', 'medium', 'amount', 'account', 'vouchar', 'org_id'];
     
     /**
      * Get the post that owns the comment.

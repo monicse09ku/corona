@@ -32,12 +32,14 @@
                             <tr>
                               <th>Name</th>
                               <th>Phone</th>
+                              <th>Expertise</th>
                               <th>Organisation</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="volunteer in volunteers">
                               <td v-text="volunteer.name"></td>
                               <td v-text="volunteer.phone"></td>
+                              <td v-text="volunteer.expertise"></td>
                               <td v-text="volunteer.organisation.name"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditVolunteer(volunteer)" class="btn btn-warning"><i class="fa fa-edit"></i></button>

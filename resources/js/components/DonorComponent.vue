@@ -10,6 +10,7 @@
                 donor: {
                     summary: '',
                     medium: '',
+                    account: '',
                     amount: '',
                     org_id: '',
                 },
@@ -36,6 +37,7 @@
                 formData.append('file', this.image);
                 formData.append('summary', this.donor.summary);
                 formData.append('medium', this.donor.medium);
+                formData.append('account', this.donor.account);
                 formData.append('amount', this.donor.amount);
                 formData.append('org_id', this.donor.org_id);
 
@@ -59,6 +61,7 @@
                         this.showDonorForm = false
                         this.donor.summary = ''
                         this.donor.medium = ''
+                        this.donor.account = ''
                         this.donor.amount = ''
                         this.donor.org_id = ''
                         this.image = ''
@@ -75,6 +78,7 @@
                 this.donor_id = data.id
                 this.donor.summary = data.summary
                 this.donor.medium = data.medium
+                this.donor.account = data.account
                 this.donor.amount = data.amount
                 this.donor.org_id = data.org_id
             },

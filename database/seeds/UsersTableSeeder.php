@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Super Admin',
                 'email' => 'super-admin@gmail.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('123456!@#'), // password
+                'password' => bcrypt('p@$$word'), // password
                 'remember_token' => Str::random(10),
                 'role' => 'super_admin',
             ],
@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('1234567!@#'), // password
+                'password' => bcrypt('p@$$word'), // password
                 'remember_token' => Str::random(10),
                 'role' => 'admin',
             ],
@@ -53,6 +53,22 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Org Admin 3',
                 'email' => 'org_admin3@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('123456!@#'), // password
+                'remember_token' => Str::random(10),
+                'role' => 'org_admin',
+            ],
+            [
+                'name' => 'Org Admin 4',
+                'email' => 'org_admin4@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('123456!@#'), // password
+                'remember_token' => Str::random(10),
+                'role' => 'org_admin',
+            ],
+            [
+                'name' => 'Org Admin 5',
+                'email' => 'org_admin5@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('123456!@#'), // password
                 'remember_token' => Str::random(10),

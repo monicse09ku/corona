@@ -36,7 +36,8 @@ class VolunteerController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'expertise' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -47,7 +48,8 @@ class VolunteerController extends ApiBaseController
             Volunteer::create([
                     'name' => $request->name,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
+                    'org_id' => $request->org_id,
+                    'expertise' => $request->expertise,
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -67,7 +69,8 @@ class VolunteerController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'expertise' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -79,6 +82,7 @@ class VolunteerController extends ApiBaseController
                     'name' => $request->name,
                     'phone' => $request->phone,
                     'org_id' => $request->org_id
+                    'expertise' => $request->expertise
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){

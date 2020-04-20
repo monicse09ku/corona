@@ -31,7 +31,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
+            //'phone' => 'regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
@@ -39,12 +39,14 @@ class FamilyController extends ApiBaseController
             return $this->respondValidationError('Parameters failed validation');
         }
 
-        $family = Family::where('phone', $request->phone)->first();
+        if(!empty($request->phone)){
+            $family = Family::where('phone', $request->phone)->first();
 
-        if(!empty($family)){
-            return $this->respondValidationError('Family Already Exists');
+            if(!empty($family)){
+                return $this->respondValidationError('Family Already Exists');
+            } 
         }
-
+        
         try{
             $raw_medications = [];
             foreach ($request->medications as $key => $value) {
@@ -57,6 +59,7 @@ class FamilyController extends ApiBaseController
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'occupation' => $request->occupation,
                     'type' => $request->type,
                     'total_member' => $request->elderly + $request->adult + $request->children,
                     'elderly' => !empty($request->elderly) ? $request->elderly : 0,
@@ -85,7 +88,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
+            //'phone' => 'regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
@@ -98,6 +101,7 @@ class FamilyController extends ApiBaseController
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'occupation' => $request->occupation,
                     'type' => $request->type,
                     'total_member' => $request->elderly + $request->adult + $request->children,
                     'elderly' => $request->elderly,

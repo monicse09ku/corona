@@ -32,6 +32,7 @@
                             <tr>
                               <th>Name</th>
                               <th>Phone</th>
+                              <th>Occupation</th>
                               <th>Donation Area</th>
                               <th>Type</th>
                               <th>Members</th>
@@ -42,6 +43,7 @@
                               <td v-if="family.contact_history" style="color: red; font-weight: bold;" v-text="family.name"></td>
                               <td v-else style="color: green;font-weight: bold;" v-text="family.name"></td>
                               <td v-text="family.phone"></td>
+                              <td v-text="family.occupation"></td>
                               <td v-text="family.donation_area.area_name"></td>
                               <td v-text="family.type"></td>
                               <td>

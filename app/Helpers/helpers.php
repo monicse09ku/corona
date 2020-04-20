@@ -228,3 +228,15 @@ if (!function_exists('random_color')) {
     }
 }
 
+if (!function_exists('payment_methods')) {
+    function payment_methods() {
+        return ['Bkash', 'Rocket', 'Nogod', 'DBBL'];
+    }
+}
+
+if (!function_exists('accounts')) {
+    function accounts() {
+        return ['Shounok', 'Pappa', 'Razi', 'Apurba', 'Lushan', 'Akash'];
+    }
+}
+

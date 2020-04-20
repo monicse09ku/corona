@@ -21,6 +21,7 @@
                 family: {
                     name: '',
                     phone: '',
+                    occupation: '',
                     donation_area_id: '',
                     type: '',
                     elderly: '',
@@ -48,6 +49,7 @@
                 let formData = {
                     name : this.family.name,
                     phone : this.family.phone,
+                    occupation : this.family.occupation,
                     donation_area_id : this.family.donation_area_id,
                     type : this.family.type,
                     elderly : this.family.elderly,
@@ -78,6 +80,7 @@
                         this.showFamilyForm = false
                         this.family.name = ''
                         this.family.phone = ''
+                        this.family.occupation = ''
                         this.family.donation_area_id = ''
                         this.family.type = ''
                         this.family.elderly = ''
@@ -99,12 +102,21 @@
                 this.family_id = data.id
                 this.family.name = data.name
                 this.family.phone = data.phone
+                this.family.occupation = data.occupation
                 this.family.donation_area_id = data.donation_area_id
                 this.family.type = data.type
                 this.family.elderly = data.elderly
                 this.family.adult = data.adult
                 this.family.children = data.children
-                this.family.medications = []
+
+                if(data.medications){
+                    let medications = data.medications.split(', ')
+                    this.family.medications = this.getPreviousMedications(medications)
+                }else{
+                    this.family.medications = []
+                }
+                
+                
                 this.family.details = data.details
                 this.family.contact_history = data.contact_history
             },
@@ -126,6 +138,22 @@
             closeFamilyForm(){
                 this.family_id = ''
                 this.showFamilyForm = false
+            },
+            getPreviousMedications(medications){
+                let medications_array = []
+                medications_array['Respiratory'] = "শ্বাসতন্ত্"
+                medications_array['Diabetes'] = "ডায়াবেটিস"
+                medications_array['Blood Pressure'] = "রক্তচাপ"
+                medications_array['Smoking'] = "ধূমপান"
+
+                let selected_medications = []
+
+                medications.forEach(function(entry) {
+                    let raw_medications = { name: medications_array[entry], language: entry } 
+                    selected_medications.push(raw_medications)
+                })
+
+                return selected_medications
             }
         },
     }

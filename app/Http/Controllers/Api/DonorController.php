@@ -36,6 +36,7 @@ class DonorController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
             'medium' => 'required',
+            'account' => 'required',
             'amount' => 'required|integer',
             'org_id' => 'required'
         ]);
@@ -54,6 +55,7 @@ class DonorController extends ApiBaseController
             Donor::create([
                     'summary' => $request->summary,
                     'medium' => $request->medium,
+                    'account' => $request->account,
                     'amount' => $request->amount,
                     'vouchar' => $imageName,
                     'org_id' => $request->org_id
@@ -76,6 +78,7 @@ class DonorController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
             'medium' => 'required',
+            'account' => 'required',
             'amount' => 'required|integer',
             'org_id' => 'required'
         ]);
@@ -90,6 +93,7 @@ class DonorController extends ApiBaseController
             $data = [
                     'summary' => $request->summary,
                     'medium' => $request->medium,
+                    'account' => $request->account,
                     'amount' => $request->amount,
                     'org_id' => $request->org_id
                 ];

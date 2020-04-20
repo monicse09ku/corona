@@ -1,22 +1,29 @@
 <script>
+    import Multiselect from 'vue-multiselect'
+    
     export default {
+        components: {
+            Multiselect
+        },
         mounted() {
             this.loading = true
             setTimeout(() => this.fetchDonations(), 1000)  
         },
         data(){
             return {
+                donated_families: [],
                 donations: [],
                 families: [],
                 donation: {
                     donation_area_id: '',
-                    family_id: '',
+                    family_ids: [],
                     org_id: ''
                 },
                 donation_id: '',
                 pagination:{},
                 edit:false,
                 showDonationForm:false,
+                showDonatedFamilies:false,
             }
 
         },
@@ -31,14 +38,22 @@
             getAllFamilies(){
                 axios.get('api/donation-area-families/'+this.donation.donation_area_id)
                 .then( res => {
-                    this.families = res.data.data
+                    let all_families = res.data.data
+                    let raw_families = []
+
+                    all_families.forEach(function(entry) {
+                        let single_families = { name: entry.name, id: entry.id }
+                        raw_families.push(single_families)
+                    })
+
+                    this.families = raw_families
                     console.log(res.data.data)
                 })
             },
             saveDonation(){
                 let formData = {
                     donation_area_id : this.donation.donation_area_id,
-                    family_id : this.donation.family_id,
+                    family_ids : this.donation.family_ids,
                     org_id : this.donation.org_id
                 }
 
@@ -61,7 +76,7 @@
 
                         this.showDonationForm = false
                         this.donation.donation_area_id = ''
-                        this.donation.family_id = ''
+                        this.donation.family_ids = []
                         this.donation.org_id = ''
                         this.donation_id = ''
                     }else{
@@ -71,11 +86,17 @@
                 
             },
 
+            ViewDonation(data){
+                this.donated_families = data.family_ids
+                this.showDonatedFamilies = true
+            },
+
             EditDonation(data){
                 this.showDonationForm = true
                 this.donation_id = data.id
                 this.donation.donation_area_id = data.donation_area_id
-                this.donation.family_id = data.family_id
+                this.getAllFamilies()
+                this.donation.family_ids = data.family_ids
                 this.donation.org_id = data.org_id
             },
 
@@ -96,6 +117,10 @@
             closeDonationForm(){
                 this.donation_id = ''
                 this.showDonationForm = false
+            },
+            closeDonatedFamilies(){
+                this.donated_families = []
+                this.showDonatedFamilies = false
             }
         },
     }

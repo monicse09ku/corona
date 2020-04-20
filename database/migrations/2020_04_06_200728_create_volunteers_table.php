@@ -17,6 +17,7 @@ class CreateVolunteersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('phone');
+            $table->string('expertise');
             $table->bigInteger('org_id')->unsigned()->comment('organisation id');
             $table->timestamps();
         });

@@ -9,18 +9,26 @@
     <form v-on:submit.prevent class="form-horizontal" enctype="multipart/form-data">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">Summary</label>
           <input type="text" v-model="donor.summary" class="form-control"> 
         </div> 
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">Medium</label>
           <select v-model="donor.medium" class="form-control" >
             <option disabled value="">Please select one</option>
-            <option value="Bkash">Bkash</option>
-            <option value="Rocket">Rocket</option>
-            <option value="Nogod">Nogod</option>
-            <option value="DBBL">DBBL</option>
+            @foreach(payment_methods() as $payment_method)
+            <option value="{{ $payment_method }}">{{ $payment_method }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Account</label>
+          <select v-model="donor.account" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach(accounts() as $account)
+            <option value="{{ $account }}">{{ $account }}</option>
+            @endforeach
           </select>
         </div>
         <div class="col-md-4 col-sm-12">
