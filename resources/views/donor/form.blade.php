@@ -52,7 +52,7 @@
       <!-- /.box-body -->
       <div class="box-footer">
         <button @click="closeDonorForm()" type="submit" class="btn btn-default pull-right">Cancel</button>
-        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveDonor()">Save Organisation</button>
+        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveDonor()">Save Donor</button>
       </div>
     </form>
   </div>

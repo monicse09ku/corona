@@ -81,7 +81,7 @@ class VolunteerController extends ApiBaseController
             Volunteer::where('id', $id)->update([
                     'name' => $request->name,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
+                    'org_id' => $request->org_id,
                     'expertise' => $request->expertise
                 ]);
             return $this->respondSuccess('SUCCESS');
