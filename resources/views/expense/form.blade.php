@@ -52,7 +52,7 @@
       <!-- /.box-body -->
       <div class="box-footer">
         <button @click="closeExpenseForm()" type="submit" class="btn btn-default pull-right">Cancel</button>
-        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveExpense()">Save Organisation</button>
+        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveExpense()">Save Expense</button>
       </div>
     </form>
   </div>
