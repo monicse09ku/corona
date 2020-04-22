@@ -17,7 +17,7 @@ class UserController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return UserResource::collection(User::paginate(request('limit') ?? 10));
+        return UserResource::collection(User::where('role', '!=', 'super_admin')->orderBy('id', 'DESC')->paginate(request('limit') ?? 10));
     }
 
     /**
