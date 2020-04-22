@@ -17,7 +17,7 @@ class FamilyController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return FamilyResource::collection(Family::with('donation_area')->paginate(request('limit') ?? 10));
+        return FamilyResource::collection(Family::with('donation_area')->orderBy('id', 'DESC')->paginate(request('limit') ?? 25));
     }
 
     /**
