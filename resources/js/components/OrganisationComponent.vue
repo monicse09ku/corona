@@ -11,7 +11,7 @@
                     name: '',
                     status: '',
                 },
-                org_id: '',
+                organisation_id: '',
                 pagination:{},
                 edit:false,
                 showOrganisationForm:false,
@@ -52,7 +52,7 @@
                         this.showOrganisationForm = false
                         this.organisation.name = ''
                         this.organisation.status = ''
-                        this.org_id = ''
+                        this.organisation_id = ''
                     }else{
                         alert('Something Went Wrong!!')
                     }
@@ -84,6 +84,8 @@
             closeOrganisationForm(){
                 this.organisation_id = ''
                 this.showOrganisationForm = false
+                this.organisation.name = ''
+                this.organisation.status = ''
             }
         },
     }

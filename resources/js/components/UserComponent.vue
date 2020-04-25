@@ -109,6 +109,13 @@
             closeUserForm(){
                 this.user_id = ''
                 this.showUserForm = false
+                this.user.name = ''
+                this.user.email = ''
+                this.user.phone = ''
+                this.user.password = ''
+                this.user.confirmPassword = ''
+                this.user.role = ''
+                this.user.status = ''
             }
         },
     }

@@ -117,6 +117,9 @@
             closeDonationForm(){
                 this.donation_id = ''
                 this.showDonationForm = false
+                this.donation.donation_area_id = ''
+                this.donation.family_ids = []
+                this.donation.org_id = ''
             },
             closeDonatedFamilies(){
                 this.donated_families = []

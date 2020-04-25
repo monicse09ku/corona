@@ -100,6 +100,12 @@
             closeDonorForm(){
                 this.donor_id = ''
                 this.showDonorForm = false
+                this.donor.summary = ''
+                this.donor.medium = ''
+                this.donor.account = ''
+                this.donor.amount = ''
+                this.donor.org_id = ''
+                this.image = ''
             }
         },
     }

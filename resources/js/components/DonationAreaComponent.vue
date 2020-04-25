@@ -63,6 +63,8 @@
                         this.showDonationAreaForm = false
                         this.donationArea.area_name = ''
                         this.donationArea.status = ''
+                        this.donationArea.lat = ''
+                        this.donationArea.long = ''
                         this.donation_area_id = ''
                     }else{
                         alert('Something Went Wrong!!')
@@ -97,6 +99,10 @@
             closeDonationAreaForm(){
                 this.donation_area_id = ''
                 this.showDonationAreaForm = false
+                this.donationArea.area_name = ''
+                this.donationArea.status = ''
+                this.donationArea.lat = ''
+                this.donationArea.long = ''
             }
         },
     }

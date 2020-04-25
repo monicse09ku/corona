@@ -84,6 +84,8 @@
             closeOrgAdminForm(){
                 this.org_admin_id = ''
                 this.showOrgAdminForm = false
+                this.org_admin.user_id = ''
+                this.org_admin.org_id = ''
             }
         },
     }

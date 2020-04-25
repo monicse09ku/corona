@@ -92,6 +92,10 @@
             closeVolunteerForm(){
                 this.volunteer_id = ''
                 this.showVolunteerForm = false
+                this.volunteer.name = ''
+                this.volunteer.phone = ''
+                this.volunteer.org_id = ''
+                this.volunteer.expertise = ''
             }
         },
     }

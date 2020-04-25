@@ -138,6 +138,17 @@
             closeFamilyForm(){
                 this.family_id = ''
                 this.showFamilyForm = false
+                this.family.name = ''
+                this.family.phone = ''
+                this.family.occupation = ''
+                this.family.donation_area_id = ''
+                this.family.type = ''
+                this.family.elderly = ''
+                this.family.adult = ''
+                this.family.children = ''
+                this.family.medications = []
+                this.family.details = ''
+                this.family.contact_history = ''
             },
             getPreviousMedications(medications){
                 let medications_array = []

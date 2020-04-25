@@ -100,6 +100,12 @@
             closeExpenseForm(){
                 this.expense_id = ''
                 this.showExpenseForm = false
+                this.expense.summary = ''
+                this.expense.medium = ''
+                this.expense.account = ''
+                this.expense.amount = ''
+                this.expense.org_id = ''
+                this.image = ''
             }
         },
     }
