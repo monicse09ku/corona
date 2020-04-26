@@ -64,7 +64,6 @@
                                                         class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
-
                                     </table>
                                 </div>
                                 <div v-if="families.total>0" class="box-footer">
