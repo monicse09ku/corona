@@ -47,7 +47,7 @@ class UserController extends ApiBaseController
         }
 
         try{
-            
+
             User::create([
                     'name' => $request->name,
                     'email' => $request->email,
@@ -86,7 +86,7 @@ class UserController extends ApiBaseController
 
         try{
             $user = User::findOrFail($id);
-            
+
             $data = [
                     'name' => $request->name,
                     'email' => $request->email,
@@ -94,7 +94,7 @@ class UserController extends ApiBaseController
                     'role' => $request->role,
                     'status' => $request->status,
                 ];
-            
+
             if(!empty($request->password)){
             	if ($request->password != $request->confirmPassword) {
 		            return $this->respondValidationError('Password and Confirm Password must be same.');

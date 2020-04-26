@@ -27,6 +27,7 @@ Vue.component('donor-component', require('./components/DonorComponent.vue').defa
 Vue.component('expense-component', require('./components/ExpenseComponent.vue').default);
 Vue.component('user-component', require('./components/UserComponent.vue').default);
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

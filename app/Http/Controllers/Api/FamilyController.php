@@ -16,7 +16,8 @@ class FamilyController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return FamilyResource::collection(Family::with('donation_area')->paginate(request('limit') ?? 10));
+        return Family::with('donation_area')->paginate(request('limit') ?? 10);
+//        return FamilyResource::collection(Family::with('donation_area')->paginate(request('limit') ?? 2));
     }
 
     /**
@@ -49,9 +50,9 @@ class FamilyController extends ApiBaseController
             foreach ($request->medications as $key => $value) {
                 array_push($raw_medications, $value['language']);
             }
-            
+
             $medications = implode(', ', $raw_medications);
-            
+
             Family::create([
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
@@ -110,10 +111,10 @@ class FamilyController extends ApiBaseController
                 foreach ($request->medications as $key => $value) {
                     array_push($medications, $value['language']);
                 }
-                
+
                 $data['medications'] = implode(', ', $medications);
             }
-            
+
 
             Family::where('id', $id)->update($data);
             return $this->respondSuccess('SUCCESS');

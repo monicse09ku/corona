@@ -1,13 +1,13 @@
 <script>
     import Multiselect from 'vue-multiselect'
-    
+
     export default {
         components: {
             Multiselect
-        },    
+        },
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchFamilies(), 1000)  
+            setTimeout(() => this.fetchFamilies(), 1000)
         },
         data(){
             return {
@@ -34,14 +34,13 @@
                 edit:false,
                 showFamilyForm:false,
             }
-
         },
         methods: {
-            fetchFamilies(){
-                axios.get('api/families')
+            fetchFamilies(page = 1){
+                axios.get('api/families?page=' + page)
                 .then( res => {
-                    this.families = res.data.data
-                    console.log(res.data.data)
+                    this.families = res.data
+                    console.log(res)
                 })
             },
             saveFamily(){
@@ -89,10 +88,9 @@
                     }else{
                         alert(response.data.error.message)
                     }
-                });  
-                
-            },
+                });
 
+            },
             EditFamily(data){
                 this.showFamilyForm = true
                 this.family_id = data.id
@@ -107,7 +105,6 @@
                 this.family.details = data.details
                 this.family.contact_history = data.contact_history
             },
-
             deleteFamily(id) {
                 if (confirm('Are You Sure?')) {
 
