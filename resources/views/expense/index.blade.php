@@ -31,16 +31,20 @@
                           <table class="table table-striped">
                             <tr>
                               <th>Summary</th>
+                              <th>Medium</th>
+                              <th>Account</th>
                               <th>Amount</th>
                               <th>Vouchar</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="expense in expenses">
                               <td v-text="expense.summary"></td>
+                              <td v-text="expense.medium"></td>
+                              <td v-text="expense.account"></td>
                               <td v-text="expense.amount"></td>
                               <td>
                                 <span v-if="expense.vouchar">
-                                  <img height="100" width="100" :src="'public/images/expenses/' + expense.vouchar">
+                                  <img height="100" width="100" :src="'public/images/expenses/' + expense.org_id + '/' + expense.vouchar">
                                 </span>
                               </td>
                               <td>

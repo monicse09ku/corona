@@ -10,7 +10,9 @@
                 donor: {
                     summary: '',
                     medium: '',
+                    account: '',
                     amount: '',
+                    org_id: '',
                 },
                 image: '',
                 donor_id: '',
@@ -35,7 +37,9 @@
                 formData.append('file', this.image);
                 formData.append('summary', this.donor.summary);
                 formData.append('medium', this.donor.medium);
+                formData.append('account', this.donor.account);
                 formData.append('amount', this.donor.amount);
+                formData.append('org_id', this.donor.org_id);
 
                 let url = !this.donor_id ? `api/donors` : `api/donors/${this.donor_id}?_method=PUT`
 
@@ -57,10 +61,13 @@
                         this.showDonorForm = false
                         this.donor.summary = ''
                         this.donor.medium = ''
+                        this.donor.account = ''
                         this.donor.amount = ''
+                        this.donor.org_id = ''
                         this.image = ''
+                        this.donor_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 
@@ -71,7 +78,9 @@
                 this.donor_id = data.id
                 this.donor.summary = data.summary
                 this.donor.medium = data.medium
+                this.donor.account = data.account
                 this.donor.amount = data.amount
+                this.donor.org_id = data.org_id
             },
 
             deleteDonor(id) {
@@ -91,6 +100,12 @@
             closeDonorForm(){
                 this.donor_id = ''
                 this.showDonorForm = false
+                this.donor.summary = ''
+                this.donor.medium = ''
+                this.donor.account = ''
+                this.donor.amount = ''
+                this.donor.org_id = ''
+                this.image = ''
             }
         },
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\FamilyResource;
 use App\Models\Family;
+use Auth;
 
 class FamilyController extends ApiBaseController
 {
@@ -16,8 +17,7 @@ class FamilyController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return Family::with('donation_area')->paginate(request('limit') ?? 10);
-//        return FamilyResource::collection(Family::with('donation_area')->paginate(request('limit') ?? 2));
+        return FamilyResource::collection(Family::with('donation_area')->orderBy('id', 'DESC')->paginate(request('limit') ?? 25));
     }
 
     /**
@@ -31,7 +31,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
+            //'phone' => 'regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
@@ -39,24 +39,27 @@ class FamilyController extends ApiBaseController
             return $this->respondValidationError('Parameters failed validation');
         }
 
-        $family = Family::where('phone', $request->phone)->first();
+        if(!empty($request->phone)){
+            $family = Family::where('phone', $request->phone)->first();
 
-        if(!empty($family)){
-            return $this->respondValidationError('Family Already Exists');
+            if(!empty($family)){
+                return $this->respondValidationError('Family Already Exists');
+            } 
         }
-
+        
         try{
             $raw_medications = [];
             foreach ($request->medications as $key => $value) {
                 array_push($raw_medications, $value['language']);
             }
-
+            
             $medications = implode(', ', $raw_medications);
-
+            
             Family::create([
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'occupation' => $request->occupation,
                     'type' => $request->type,
                     'total_member' => $request->elderly + $request->adult + $request->children,
                     'elderly' => !empty($request->elderly) ? $request->elderly : 0,
@@ -64,7 +67,8 @@ class FamilyController extends ApiBaseController
                     'children' => !empty($request->children) ? $request->children : 0,
                     'medications' => $medications,
                     'details' => $request->details,
-                    'contact_history' => $request->contact_history
+                    'contact_history' => $request->contact_history,
+                    'created_by' => Auth::user()->id,
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -84,7 +88,7 @@ class FamilyController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'donation_area_id' => 'required',
             'name' => 'required',
-            'phone' => 'required|regex:/[0-9]+/|between:1,31',
+            //'phone' => 'regex:/[0-9]+/|between:1,31',
             'type' => 'required',
         ]);
 
@@ -97,6 +101,7 @@ class FamilyController extends ApiBaseController
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'occupation' => $request->occupation,
                     'type' => $request->type,
                     'total_member' => $request->elderly + $request->adult + $request->children,
                     'elderly' => $request->elderly,
@@ -111,10 +116,10 @@ class FamilyController extends ApiBaseController
                 foreach ($request->medications as $key => $value) {
                     array_push($medications, $value['language']);
                 }
-
+                
                 $data['medications'] = implode(', ', $medications);
             }
-
+            
 
             Family::where('id', $id)->update($data);
             return $this->respondSuccess('SUCCESS');

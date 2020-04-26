@@ -17,7 +17,8 @@ class CreateFamiliesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('donation_area_id')->unsigned();
             $table->string('name');
-            $table->string('phone');
+            $table->string('phone')->nullable();
+            $table->string('occupation')->nullable();
             $table->string('type')->comment('not poor, poor, extreme poor');
             $table->integer('total_member')->default(0);
             $table->integer('elderly')->default(0);
@@ -26,6 +27,7 @@ class CreateFamiliesTable extends Migration
             $table->text('medications')->nullable();
             $table->text('details')->nullable();
             $table->boolean('contact_history')->default(0);
+            $table->bigInteger('created_by')->unsigned();
             $table->timestamps();
         });
     }

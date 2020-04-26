@@ -28,13 +28,23 @@
           </select>
         </div>
         <div class="col-md-4 col-sm-12">
-          <label for="inputPassword3" class="control-label">Family</label>
+          <!-- <label for="inputPassword3" class="control-label">Family</label>
           <select v-model="donation.family_id" class="form-control" >
             <option disabled value="">Please select one</option>
             <option v-for="(item, key) in families" :value="item.id">
               @{{item.name}}
             </option>
-          </select>
+          </select> -->
+          <label for="inputPassword3" class="control-label">Families</label>
+          <multiselect v-model="donation.family_ids" :options="families" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Pick some" label="name" track-by="name">
+          </multiselect>
+          <!-- <select v-model="family.smoker" class="form-control" multiple="">
+            <option disabled value="">Please select one</option>
+            <option value="Respiratory">শ্বাসতন্ত্</option>
+            <option value="Diabetes">ডায়াবেটিস</option>
+            <option value="Blood Pressure">রক্তচাপ</option>
+            <option value="Smoking">ধূমপান</option>
+          </select> -->
         </div>
       </div>
       <!-- /.box-body -->

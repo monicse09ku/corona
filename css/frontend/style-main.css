@@ -9,13 +9,13 @@ Primary use:    Nonprofit, Crowdfunding & Charity HTML5 Template
 Author:         ThemeMascot
 URL:            http://themeforest.net/user/ThemeMascot
 -------------------------------------------------------------------*/
-@import "../css/font-awesome.min.css";
-@import "../css/font-awesome-animation.min.css";
-@import "../css/pe-icon-7-stroke.css";
+@import "/css/frontend/font-awesome.min.css";
+@import "/css/frontend/font-awesome-animation.min.css";
+@import "/css/frontend/pe-icon-7-stroke.css";
 /* @import "../css/elegant-icons.css"; */
 /* @import "../css/stroke-gap-icons.css"; */
-@import "../css/flaticon-set-charity.css";
-@import "../css/utility-classes.css";
+@import "/css/frontend/flaticon-set-charity.css";
+@import "/css/frontend/utility-classes.css";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800|Playfair+Display:400,400italic,700,700italic);
 /*
 This file contains the common styles of this theme.
@@ -3208,7 +3208,7 @@ form .error {
   top: 45%;
 }
 .fullwidth-carousel .carousel-item {
-  min-height: 615px;
+  min-height: 600px;
   width: 100%;
 }
 .fullwidth-carousel.blog-fullwidth-carousel .carousel-item {
@@ -6539,6 +6539,23 @@ blockquote p {
 .working-process.theme-colored li a {
   color: #fff;
 }
+
+/*
+* Donation Area Styles
+-----------------
+*/
+.acc-details{
+  padding: 0 20px;
+  margin-top: 20px;
+}
+.logo-outer {
+  padding: 5px 10px;
+}
+
+.bkash-border{border: 1px solid #DF146E;}
+.nogod-border{border: 1px solid #FF0000;}
+.rocket-border{border: 1px solid #7B0C83;}
+.dbbl-border{border: 1px solid #008837;}
 /*
  * Widgets.less
  * -----------------------------------------------

@@ -9,15 +9,19 @@
     <form v-on:submit.prevent class="form-horizontal" accept-charset="utf-8">
       <div class="box-body">
         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">নাম</label>
           <input type="text" v-model="family.name" class="form-control"> 
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">মোবাইল নাম্বার</label>
           <input type="text" v-model="family.phone" class="form-control"> 
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
+          <label for="inputEmail3" class="control-label">পেশা</label>
+          <input type="text" v-model="family.occupation" class="form-control"> 
+        </div>
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">এলাকা</label>
           <select v-model="family.donation_area_id" class="form-control" >
             <option disabled value="">Please select one</option>
@@ -26,7 +30,7 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">আর্থিক অবস্থা কেমন</label>
           <select v-model="family.type" class="form-control" >
             <option disabled value="">Please select one</option>
@@ -35,7 +39,7 @@
             <option value="Not Poor">গরীব নয়</option>
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">বৃদ্ধ কতজন?</label>
           <select v-model="family.elderly" class="form-control" >
             <option disabled value="">Please select one</option>
@@ -44,7 +48,7 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">প্রাপ্তবয়স্ক কতজন?</label>
           <select v-model="family.adult" class="form-control" >
             <option disabled value="">Please select one</option>
@@ -53,7 +57,7 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">শিশু কতজন?</label>
           <select v-model="family.children" class="form-control" >
             <option disabled value="">Please select one</option>
@@ -62,7 +66,7 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <label for="inputPassword3" class="control-label">ঝুকিপূর্ণ এলাকা/মানুষের স্পর্শ?</label>
           <select v-model="family.contact_history" class="form-control" >
             <option disabled value="">Please select one</option>

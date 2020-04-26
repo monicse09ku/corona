@@ -16,7 +16,13 @@ class VolunteerController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return VolunteerResource::collection(Volunteer::with('organisation')->paginate(request('limit') ?? 10));
+        if(\Auth::user()->role == 'org_admin'){
+            return VolunteerResource::collection(Volunteer::with('organisation.org_admin')->whereHas('organisation.org_admin', function ($query) {
+                    $query->where('user_id', \Auth::user()->id);
+                })->paginate(request('limit') ?? 10));
+        }else{
+            return VolunteerResource::collection(Volunteer::with('organisation.org_admin')->paginate(request('limit') ?? 10));
+        }
     }
 
     /**
@@ -30,7 +36,8 @@ class VolunteerController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'expertise' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -41,7 +48,8 @@ class VolunteerController extends ApiBaseController
             Volunteer::create([
                     'name' => $request->name,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
+                    'org_id' => $request->org_id,
+                    'expertise' => $request->expertise,
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -61,7 +69,8 @@ class VolunteerController extends ApiBaseController
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required|regex:/[0-9]+/|between:1,31',
-            'org_id' => 'required'
+            'org_id' => 'required',
+            'expertise' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -72,7 +81,8 @@ class VolunteerController extends ApiBaseController
             Volunteer::where('id', $id)->update([
                     'name' => $request->name,
                     'phone' => $request->phone,
-                    'org_id' => $request->org_id
+                    'org_id' => $request->org_id,
+                    'expertise' => $request->expertise
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){

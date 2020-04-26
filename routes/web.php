@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('frontend.homepage');
 });
 
+Route::get('/make_donations', function () {
+    return view('frontend.donation');
+});
+
 Route::get('/user-area', function () {
     return view('welcome');
 });
@@ -29,10 +33,18 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/donations', 'Donation\DonationController@index');
 	Route::get('/families', 'Family\FamilyController@index');
 	Route::get('/organisations', 'Organisation\OrganisationController@index');
+	Route::get('/org-admins', 'Organisation\OrgAdminController@index');
 	Route::get('/volunteers', 'Volunteer\VolunteerController@index');
 	Route::get('/donors', 'Donor\DonorController@index');
 	Route::get('/expenses', 'Expense\ExpenseController@index');
 	Route::get('/users', 'UserController@index');
 	Route::get('/profile', 'UserController@profile');
+
+	Route::group([
+        'middleware' => 'roles',
+        'roles' => ['super_admin']
+    ], function () {
+        Route::get('/users', 'UserController@index');
+    });
 
 });

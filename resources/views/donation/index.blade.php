@@ -18,6 +18,11 @@
                     @include('donation.form')
                   </div>
 
+                  <div v-if="showDonatedFamilies">
+                    
+                    @include('donation.donated-families')
+                  </div>
+
                     <h1 class="card-header">Donation</h1>
 
                     <div class="card-body">
@@ -31,17 +36,18 @@
                           <table class="table table-striped">
                             <tr>
                               <th>Donation Area</th>
-                              <th>Name</th>
+                              <th>Donated Families</th>
                               <th>Organisation</th>
                               <th>Donation Date</th>
-                              <th style="width: 120px">Actions</th>
+                              <th style="width: 150px">Actions</th>
                             </tr>
                             <tr v-for="donation in donations">
                               <td v-text="donation.donation_area.area_name"></td>
-                              <td v-text="donation.family.name"></td>
+                              <td v-text="donation.family_ids.length"></td>
                               <td v-text="donation.organisation.name"></td>
                               <td v-text="donation.created_at"></td>
                               <td>
+                                <button style="margin-bottom: 5px" @click="ViewDonation(donation)" class="btn btn-warning"><i class="fa fa-list"></i></button>
                                 <button style="margin-bottom: 5px" @click="EditDonation(donation)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                 <button style="margin-bottom: 5px" @click="deleteDonation(donation.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>

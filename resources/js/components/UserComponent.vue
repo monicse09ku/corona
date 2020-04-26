@@ -74,8 +74,9 @@
                         this.user.confirmPassword = ''
                         this.user.role = ''
                         this.user.status = ''
+                        this.user_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 
@@ -108,6 +109,13 @@
             closeUserForm(){
                 this.user_id = ''
                 this.showUserForm = false
+                this.user.name = ''
+                this.user.email = ''
+                this.user.phone = ''
+                this.user.password = ''
+                this.user.confirmPassword = ''
+                this.user.role = ''
+                this.user.status = ''
             }
         },
     }

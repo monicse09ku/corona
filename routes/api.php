@@ -19,6 +19,7 @@ Route::apiResource('donation-areas', 'Api\DonationAreaController')->middleware('
 Route::apiResource('donations', 'Api\DonationController')->middleware('auth:api');
 Route::apiResource('families', 'Api\FamilyController')->middleware('auth:api');
 Route::apiResource('organisations', 'Api\OrganisationController')->middleware('auth:api');
+Route::apiResource('org-admins', 'Api\OrgAdminController')->middleware('auth:api');
 Route::apiResource('volunteers', 'Api\VolunteerController')->middleware('auth:api');
 Route::apiResource('donors', 'Api\DonorController')->middleware('auth:api');
 Route::apiResource('users', 'Api\UserController')->middleware('auth:api');

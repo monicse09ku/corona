@@ -1,4 +1,4 @@
-# mbs
+# Corona
 
 ### A simple micro banking system developed using `Laravel 6.0` and `Vue`. 
 

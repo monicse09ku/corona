@@ -14,6 +14,24 @@
           <input type="text" v-model="expense.summary" class="form-control"> 
         </div> 
         <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Medium</label>
+          <select v-model="expense.medium" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach(payment_methods() as $payment_method)
+            <option value="{{ $payment_method }}">{{ $payment_method }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Account</label>
+          <select v-model="expense.account" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach(accounts() as $account)
+            <option value="{{ $account }}">{{ $account }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-12">
           <label for="inputEmail3" class="control-label">Amount</label>
           <input type="text" v-model="expense.amount" class="form-control"> 
         </div>
@@ -21,11 +39,20 @@
           <label for="inputEmail3" class="control-label">Vouchar</label>
           <input type="file" class="form-control" v-on:change="onImageChange"> 
         </div>
+        <div class="col-md-4 col-sm-12">
+          <label for="inputPassword3" class="control-label">Organisation</label>
+          <select v-model="expense.org_id" class="form-control" >
+            <option disabled value="">Please select one</option>
+            @foreach($organisations as $organisation)
+            <option value="{{$organisation->id}}">{{$organisation->name}}</option>
+            @endforeach
+          </select>
+        </div>
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
         <button @click="closeExpenseForm()" type="submit" class="btn btn-default pull-right">Cancel</button>
-        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveExpense()">Save Organisation</button>
+        <button type="submit" style="margin-right: 10px" class="btn btn-info pull-right" @click="saveExpense()">Save Expense</button>
       </div>
     </form>
   </div>

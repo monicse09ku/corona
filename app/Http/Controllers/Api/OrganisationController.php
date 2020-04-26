@@ -16,7 +16,7 @@ class OrganisationController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return OrganisationResource::collection(Organisation::with('user')->paginate(request('limit') ?? 10));
+        return OrganisationResource::collection(Organisation::paginate(request('limit') ?? 10));
     }
 
     /**
@@ -29,8 +29,7 @@ class OrganisationController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
-            'status' => 'required',
-            'user_id' => 'required'
+            'status' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -40,8 +39,7 @@ class OrganisationController extends ApiBaseController
         try{
             Organisation::create([
                     'name' => $request->name,
-                    'status' => $request->status,
-                    'user_id' => $request->user_id
+                    'status' => $request->status
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -60,8 +58,7 @@ class OrganisationController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
-            'status' => 'required',
-            'user_id' => 'required'
+            'status' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -71,8 +68,7 @@ class OrganisationController extends ApiBaseController
         try{
             Organisation::where('id', $id)->update([
                     'name' => $request->name,
-                    'status' => $request->status,
-                    'user_id' => $request->user_id
+                    'status' => $request->status
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){

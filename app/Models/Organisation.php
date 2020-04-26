@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Organisation extends Model
 {
-    protected $fillable = ['name', 'status', 'user_id'];
+    protected $fillable = ['name', 'status'];
 
     /**
      * Get the post that owns the comment.
      */
-    public function user()
+    public function org_admin()
     {
-        return $this->hasOne('App\User', 'id', 'user_id');
+        return $this->belongsTO('App\Models\OrgAdmin', 'id', 'org_id');
     }
 }

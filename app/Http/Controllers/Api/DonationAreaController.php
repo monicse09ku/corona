@@ -80,14 +80,14 @@ class DonationAreaController extends ApiBaseController
             return $this->respondValidationError('Parameters failed validation');
         }
 
-        $donation_area = DonationArea::where([
+        /*$donation_area = DonationArea::where([
             ['lat', $request->lat],
             ['long', $request->long]
         ])->first();
 
         if ($donation_area !== null) {
            return $this->respondInternalError('Donation Area already exists.');
-        }
+        }*/
 
         try{
             DonationArea::where('id', $id)->update([

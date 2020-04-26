@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Volunteer extends Model
 {
-    protected $fillable = ['name', 'phone', 'org_id'];
+    protected $fillable = ['name', 'phone', 'org_id', 'expertise'];
 
     /**
      * Get the post that owns the comment.

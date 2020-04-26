@@ -11,8 +11,9 @@
                     name: '',
                     phone: '',
                     org_id: '',
+                    expertise: '',
                 },
-                org_id: '',
+                volunteer_id: '',
                 pagination:{},
                 edit:false,
                 showVolunteerForm:false,
@@ -31,7 +32,8 @@
                 let formData = {
                     name : this.volunteer.name,
                     phone : this.volunteer.phone,
-                    org_id : this.volunteer.org_id
+                    org_id : this.volunteer.org_id,
+                    expertise : this.volunteer.expertise,
                 }
 
                 let method = !this.volunteer_id ? 'post' : 'put'
@@ -55,8 +57,10 @@
                         this.volunteer.name = ''
                         this.volunteer.phone = ''
                         this.volunteer.org_id = ''
+                        this.volunteer.expertise = ''
+                        this.volunteer_id = ''
                     }else{
-                        alert(response.data.error.message)
+                        alert('Something Went Wrong!!')
                     }
                 });  
                 
@@ -68,6 +72,7 @@
                 this.volunteer.name = data.name
                 this.volunteer.phone = data.phone
                 this.volunteer.org_id = data.org_id
+                this.volunteer.expertise = data.expertise
             },
 
             deleteVolunteer(id) {
@@ -87,6 +92,10 @@
             closeVolunteerForm(){
                 this.volunteer_id = ''
                 this.showVolunteerForm = false
+                this.volunteer.name = ''
+                this.volunteer.phone = ''
+                this.volunteer.org_id = ''
+                this.volunteer.expertise = ''
             }
         },
     }

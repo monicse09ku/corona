@@ -22,6 +22,7 @@ Vue.component('donation-area-component', require('./components/DonationAreaCompo
 Vue.component('donation-component', require('./components/DonationComponent.vue').default);
 Vue.component('family-component', require('./components/FamilyComponent.vue').default);
 Vue.component('organisation-component', require('./components/OrganisationComponent.vue').default);
+Vue.component('org-admin-component', require('./components/OrgAdminComponent.vue').default);
 Vue.component('volunteer-component', require('./components/VolunteerComponent.vue').default);
 Vue.component('donor-component', require('./components/DonorComponent.vue').default);
 Vue.component('expense-component', require('./components/ExpenseComponent.vue').default);

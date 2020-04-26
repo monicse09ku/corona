@@ -16,7 +16,13 @@ class ExpenseController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return ExpenseResource::collection(Expense::paginate(request('limit') ?? 10));
+        if(\Auth::user()->role == 'org_admin'){
+            return ExpenseResource::collection(Expense::with('organisation.org_admin')->whereHas('organisation.org_admin', function ($query) {
+                    $query->where('user_id', \Auth::user()->id);
+                })->paginate(request('limit') ?? 10));
+        }else{
+            return ExpenseResource::collection(Expense::with('organisation.org_admin')->paginate(request('limit') ?? 10));
+        }
     }
 
     /**
@@ -29,7 +35,10 @@ class ExpenseController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
-            'amount' => 'required|integer'
+            'medium' => 'required',
+            'account' => 'required',
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -40,13 +49,16 @@ class ExpenseController extends ApiBaseController
             $imageName = null;
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\expenses'), $imageName);
+                $request->file->move(public_path('images/expenses/' . $request->org_id), $imageName);
             }
 
             Expense::create([
                     'summary' => $request->summary,
+                    'medium' => $request->medium,
+                    'account' => $request->account,
                     'amount' => $request->amount,
-                    'vouchar' => $imageName
+                    'vouchar' => $imageName,
+                    'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
         }catch(Exception $e){
@@ -65,7 +77,10 @@ class ExpenseController extends ApiBaseController
     {
         $validator = \Validator::make($request->all(), [
             'summary' => 'required',
-            'amount' => 'required|integer'
+            'medium' => 'required',
+            'account' => 'required',
+            'amount' => 'required|integer',
+            'org_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -77,14 +92,19 @@ class ExpenseController extends ApiBaseController
             
             $data = [
                     'summary' => $request->summary,
+                    'medium' => $request->medium,
+                    'account' => $request->account,
                     'amount' => $request->amount,
+                    'org_id' => $request->org_id
                 ];
             if ($request->hasFile('file')) {
                 $imageName = time().'.'.$request->file->getClientOriginalExtension();
-                $request->file->move(public_path('images\expenses'), $imageName);
+                $request->file->move(public_path('images/expenses/' . $request->org_id), $imageName);
 
                 if(!empty($expense->vouchar)){
-                    unlink(public_path('images\expenses\\') . $expense->vouchar);
+                    if(file_exists(public_path('images/expenses/' . $request->org_id) . '/' . $expense->vouchar)){
+                        unlink(public_path('images/expenses/' . $request->org_id) . '/' . $expense->vouchar);
+                    }
                 }
                 $data['vouchar'] = $imageName;
             }
@@ -108,7 +128,9 @@ class ExpenseController extends ApiBaseController
             $expense = Expense::findOrFail($id);
 
             if(!empty($expense->vouchar)){
-                unlink(public_path('images\expenses\\') . $expense->vouchar);
+                if(file_exists(public_path('images/expenses/' . $expense->org_id) . '/' . $expense->vouchar)){
+                    unlink(public_path('images/expenses/' . $expense->org_id) . '/' . $expense->vouchar);
+                }
             }
 
             if ($expense->delete()) {
