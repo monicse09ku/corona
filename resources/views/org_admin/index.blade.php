@@ -14,14 +14,14 @@
                   </button>
 
                   <div v-if="showOrgAdminForm">
-                    
+
                     @include('org_admin.form')
                   </div>
 
                     <h1 class="card-header">Organisation Admin</h1>
 
                     <div class="card-body">
-                        
+
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">Organisation Admin Table</h3>
@@ -35,7 +35,7 @@
                               <th>Admin Phone</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="org_admin in org_admins">
+                            <tr v-for="org_admin in org_admins.data">
                               <td v-text="org_admin.organisation.name"></td>
                               <td v-text="org_admin.user.name"></td>
                               <td v-text="org_admin.user.phone"></td>
@@ -44,9 +44,12 @@
                                 <button style="margin-bottom: 5px" @click="deleteOrgAdmin(org_admin.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
-                            
+
                           </table>
                         </div>
+                            <div v-if="org_admins.total>0" class="box-footer">
+                                <pagination :data="org_admins" @pagination-change-page="fetchOrgAdmins"></pagination>
+                            </div>
                         <!-- /.box-body -->
                       </div>
                     </div>

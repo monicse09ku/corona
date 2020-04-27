@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchOrgAdmins(), 1000)  
+            setTimeout(() => this.fetchOrgAdmins(), 1000)
         },
         data(){
             return {
@@ -19,11 +19,11 @@
 
         },
         methods: {
-            fetchOrgAdmins(){
-                axios.get('api/org-admins')
+            fetchOrgAdmins(page = 1){
+                axios.get('api/org-admins?page='+page)
                 .then( res => {
-                    this.org_admins = res.data.data
-                    console.log(res.data.data)
+                    this.org_admins = res.data
+                    console.log(res.data)
                 })
             },
             saveOrgAdmin(){
@@ -56,8 +56,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditOrgAdmin(data){

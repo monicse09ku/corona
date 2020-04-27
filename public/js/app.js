@@ -2580,9 +2580,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchOrgAdmins: function fetchOrgAdmins() {
       var _this2 = this;
 
-      axios.get('api/org-admins').then(function (res) {
-        _this2.org_admins = res.data.data;
-        console.log(res.data.data);
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/org-admins?page=' + page).then(function (res) {
+        _this2.org_admins = res.data;
+        console.log(res.data);
       });
     },
     saveOrgAdmin: function saveOrgAdmin() {

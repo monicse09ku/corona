@@ -16,7 +16,8 @@ class OrgAdminController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return OrgAdminResource::collection(OrgAdmin::with('user', 'organisation')->paginate(request('limit') ?? 10));
+//        return OrgAdminResource::collection(OrgAdmin::with('user', 'organisation')->paginate(request('limit') ?? 10));
+        return OrgAdmin::with('user', 'organisation')->paginate(request('limit') ?? 10);
     }
 
     /**
