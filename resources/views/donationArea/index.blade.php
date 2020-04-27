@@ -34,7 +34,7 @@
                               <th>Status</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="donationArea in donationAreas.data">
+                            <tr v-for="donationArea in donationAreas">
                               <td v-text="donationArea.area_name"></td>
                               <td v-text="donationArea.status"></td>
                               <td>
@@ -45,8 +45,8 @@
 
                           </table>
                         </div>
-                            <div v-if="donationAreas.total>0" class="box-footer">
-                                <pagination :data="donationAreas" @pagination-change-page="fetchDonationAreas"></pagination>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchDonationAreas"></pagination>
                             </div>
                         <!-- /.box-body -->
                       </div>

@@ -31,7 +31,8 @@
             fetchDonationAreas(page=1){
                 axios.get('api/donation-areas?page='+page)
                 .then( res => {
-                    this.donationAreas = res.data
+                    this.donationAreas = res.data.data
+                    this.pagination = res.data.meta
                 })
             },
             saveDonationArea(){

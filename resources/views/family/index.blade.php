@@ -39,7 +39,7 @@
                               <th>Health Issues</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="family in families.data">
+                            <tr v-for="family in families">
                               <td v-if="family.contact_history" style="color: red; font-weight: bold;" v-text="family.name"></td>
                               <td v-else style="color: green;font-weight: bold;" v-text="family.name"></td>
                               <td v-text="family.phone"></td>

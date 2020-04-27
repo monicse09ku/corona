@@ -27,7 +27,8 @@
             fetchUsers(page =1){
                 axios.get('api/users?page='+page)
                 .then( res => {
-                    this.users = res.data
+                    this.users = res.data.data
+                    this.pagination = res.data.meta
                     console.log(res.data)
                 })
             },

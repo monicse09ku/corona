@@ -1878,7 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('api/donation-areas?page=' + page).then(function (res) {
-        _this2.donationAreas = res.data;
+        _this2.donationAreas = res.data.data;
+        _this2.pagination = res.data.meta;
       });
     },
     saveDonationArea: function saveDonationArea() {
@@ -2002,8 +2003,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchDonations: function fetchDonations() {
       var _this2 = this;
 
-      axios.get('api/donations').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/donations?page=' + page).then(function (res) {
         _this2.donations = res.data.data;
+        _this2.pagination = res.data.meta;
         console.log(res.data.data);
       });
     },
@@ -2145,8 +2148,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchDonors: function fetchDonors() {
       var _this2 = this;
 
-      axios.get('api/donors').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/donors?page=' + page).then(function (res) {
         _this2.donors = res.data.data;
+        _this2.pagination = res.data.meta;
       });
     },
     saveDonor: function saveDonor() {
@@ -2270,8 +2275,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchExpenses: function fetchExpenses() {
       var _this2 = this;
 
-      axios.get('api/expenses').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/expenses?page=' + page).then(function (res) {
         _this2.expenses = res.data.data;
+        _this2.pagination = res.data.meta;
       });
     },
     saveExpense: function saveExpense() {
@@ -2417,7 +2424,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('api/families?page=' + page).then(function (res) {
-        _this2.families = res.data;
+        _this2.families = res.data.data;
         _this2.pagination = res.data.meta; // console.log(res)
       });
     },
@@ -2583,7 +2590,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('api/org-admins?page=' + page).then(function (res) {
-        _this2.org_admins = res.data;
+        _this2.org_admins = res.data.data;
+        _this2.pagination = res.data.meta;
         console.log(res.data);
       });
     },
@@ -2690,7 +2698,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('api/organisations?page=' + page).then(function (res) {
-        _this2.organisations = res.data;
+        _this2.organisations = res.data.data;
+        _this2.pagination = res.data.meta;
         console.log(_this2.organisations);
       });
     },
@@ -2877,7 +2886,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('api/users?page=' + page).then(function (res) {
-        _this2.users = res.data;
+        _this2.users = res.data.data;
+        _this2.pagination = res.data.meta;
         console.log(res.data);
       });
     },

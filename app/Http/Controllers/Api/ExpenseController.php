@@ -89,7 +89,7 @@ class ExpenseController extends ApiBaseController
 
         try{
             $expense = Expense::findOrFail($id);
-            
+
             $data = [
                     'summary' => $request->summary,
                     'medium' => $request->medium,

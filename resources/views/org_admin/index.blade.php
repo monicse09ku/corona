@@ -35,7 +35,7 @@
                               <th>Admin Phone</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="org_admin in org_admins.data">
+                            <tr v-for="org_admin in org_admins">
                               <td v-text="org_admin.organisation.name"></td>
                               <td v-text="org_admin.user.name"></td>
                               <td v-text="org_admin.user.phone"></td>
@@ -47,8 +47,8 @@
 
                           </table>
                         </div>
-                            <div v-if="org_admins.total>0" class="box-footer">
-                                <pagination :data="org_admins" @pagination-change-page="fetchOrgAdmins"></pagination>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchOrgAdmins"></pagination>
                             </div>
                         <!-- /.box-body -->
                       </div>

@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchExpenses(), 1000)  
+            setTimeout(() => this.fetchExpenses(), 1000)
         },
         data(){
             return {
@@ -26,10 +26,11 @@
             onImageChange(e){
                 this.image = e.target.files[0]
             },
-            fetchExpenses(){
-                axios.get('api/expenses')
+            fetchExpenses(page=1){
+                axios.get('api/expenses?page='+page)
                 .then( res => {
                     this.expenses = res.data.data
+                    this.pagination = res.data.meta
                 })
             },
             saveExpense(){
@@ -69,8 +70,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditExpense(data){

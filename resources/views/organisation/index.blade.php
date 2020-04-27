@@ -34,7 +34,7 @@
                               <th>Status</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="organisation in organisations.data">
+                            <tr v-for="organisation in organisations">
                               <td v-text="organisation.name"></td>
                               <td v-text="organisation.status"></td>
                               <td>
@@ -45,8 +45,8 @@
 
                           </table>
                         </div>
-                            <div v-if="organisations.total>0" class="box-footer">
-                                <pagination :data="organisations" @pagination-change-page="fetchOrganisations"></pagination>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchOrganisations"></pagination>
                             </div>
                         <!-- /.box-body -->
                       </div>

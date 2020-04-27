@@ -40,7 +40,7 @@
             fetchFamilies(page = 1){
                 axios.get('api/families?page=' + page)
                 .then( res => {
-                    this.families = res.data
+                    this.families = res.data.data
                     this.pagination = res.data.meta
                     // console.log(res)
                 })

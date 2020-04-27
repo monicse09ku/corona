@@ -29,7 +29,7 @@ class TransactionController extends ApiBaseController
                 $transaction->transaction_type = 'deposit';
             }
         }
-            
+
         return TransactionResource::collection($transactions);
     }
 
@@ -62,7 +62,7 @@ class TransactionController extends ApiBaseController
         }
 
         $revised_balance = $this->insufficientBalance($request->account_id, $request->amount);
-       
+
         if($revised_balance < 0){
             return $this->respondValidationError('Insufficient Balance');
         }
@@ -142,7 +142,7 @@ class TransactionController extends ApiBaseController
     public function insufficientBalance($account_id, $balance)
     {
         $account = Account::where('account_id', $account_id)->first();
-        
+
         return ($account->balance - $balance);
     }
 

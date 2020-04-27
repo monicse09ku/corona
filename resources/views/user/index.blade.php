@@ -37,7 +37,7 @@
                               <th>Status</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="user in users.data">
+                            <tr v-for="user in users">
                               <td v-text="user.name"></td>
                               <td v-text="user.email"></td>
                               <td v-text="user.phone"></td>
@@ -51,8 +51,8 @@
 
                           </table>
                         </div>
-                            <div v-if="users.total>0" class="box-footer">
-                                <pagination :data="users" @pagination-change-page="fetchUsers"></pagination>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchUsers"></pagination>
                             </div>
                         <!-- /.box-body -->
                       </div>

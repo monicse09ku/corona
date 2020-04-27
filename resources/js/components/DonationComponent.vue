@@ -1,13 +1,13 @@
 <script>
     import Multiselect from 'vue-multiselect'
-    
+
     export default {
         components: {
             Multiselect
         },
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchDonations(), 1000)  
+            setTimeout(() => this.fetchDonations(), 1000)
         },
         data(){
             return {
@@ -28,10 +28,11 @@
 
         },
         methods: {
-            fetchDonations(){
-                axios.get('api/donations')
+            fetchDonations(page=1){
+                axios.get('api/donations?page='+page)
                 .then( res => {
                     this.donations = res.data.data
+                    this.pagination = res.data.meta
                     console.log(res.data.data)
                 })
             },
@@ -82,8 +83,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             ViewDonation(data){

@@ -22,7 +22,8 @@
             fetchOrgAdmins(page = 1){
                 axios.get('api/org-admins?page='+page)
                 .then( res => {
-                    this.org_admins = res.data
+                    this.org_admins = res.data.data
+                    this.pagination = res.data.meta
                     console.log(res.data)
                 })
             },

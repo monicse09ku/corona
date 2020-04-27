@@ -22,7 +22,8 @@
             fetchOrganisations(page=1){
                 axios.get('api/organisations?page='+page)
                 .then( res => {
-                    this.organisations = res.data
+                    this.organisations = res.data.data
+                    this.pagination = res.data.meta
                     console.log(this.organisations)
                 })
             },

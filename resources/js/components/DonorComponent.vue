@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchDonors(), 1000)  
+            setTimeout(() => this.fetchDonors(), 1000)
         },
         data(){
             return {
@@ -26,10 +26,11 @@
             onImageChange(e){
                 this.image = e.target.files[0]
             },
-            fetchDonors(){
-                axios.get('api/donors')
+            fetchDonors(page=1){
+                axios.get('api/donors?page='+page)
                 .then( res => {
                     this.donors = res.data.data
+                    this.pagination = res.data.meta
                 })
             },
             saveDonor(){
@@ -69,8 +70,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditDonor(data){
