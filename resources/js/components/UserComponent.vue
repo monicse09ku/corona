@@ -24,11 +24,11 @@
 
         },
         methods: {
-            fetchUsers(){
-                axios.get('api/users')
+            fetchUsers(page =1){
+                axios.get('api/users?page='+page)
                 .then( res => {
-                    this.users = res.data.data
-                    console.log(res.data.data)
+                    this.users = res.data
+                    console.log(res.data)
                 })
             },
             saveUser(){

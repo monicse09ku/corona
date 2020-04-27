@@ -2873,9 +2873,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchUsers: function fetchUsers() {
       var _this2 = this;
 
-      axios.get('api/users').then(function (res) {
-        _this2.users = res.data.data;
-        console.log(res.data.data);
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/users?page=' + page).then(function (res) {
+        _this2.users = res.data;
+        console.log(res.data);
       });
     },
     saveUser: function saveUser() {
