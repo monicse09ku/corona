@@ -44,17 +44,17 @@ class FamilyController extends ApiBaseController
 
             if(!empty($family)){
                 return $this->respondValidationError('Family Already Exists');
-            } 
+            }
         }
-        
+
         try{
             $raw_medications = [];
             foreach ($request->medications as $key => $value) {
                 array_push($raw_medications, $value['language']);
             }
-            
+
             $medications = implode(', ', $raw_medications);
-            
+
             Family::create([
                     'donation_area_id' => $request->donation_area_id,
                     'name' => $request->name,
@@ -116,10 +116,10 @@ class FamilyController extends ApiBaseController
                 foreach ($request->medications as $key => $value) {
                     array_push($medications, $value['language']);
                 }
-                
+
                 $data['medications'] = implode(', ', $medications);
             }
-            
+
 
             Family::where('id', $id)->update($data);
             return $this->respondSuccess('SUCCESS');

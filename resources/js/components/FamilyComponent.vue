@@ -41,7 +41,8 @@
                 axios.get('api/families?page=' + page)
                 .then( res => {
                     this.families = res.data
-                    console.log(res)
+                    this.pagination = res.data.meta
+                    // console.log(res)
                 })
             },
             saveFamily(){
@@ -113,8 +114,8 @@
                 }else{
                     this.family.medications = []
                 }
-                
-                
+
+
                 this.family.details = data.details
                 this.family.contact_history = data.contact_history
             },
@@ -157,7 +158,7 @@
                 let selected_medications = []
 
                 medications.forEach(function(entry) {
-                    let raw_medications = { name: medications_array[entry], language: entry } 
+                    let raw_medications = { name: medications_array[entry], language: entry }
                     selected_medications.push(raw_medications)
                 })
 

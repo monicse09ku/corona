@@ -14,14 +14,14 @@
                   </button>
 
                   <div v-if="showFamilyForm">
-                    
+
                     @include('family.form')
                   </div>
 
                     <h1 class="card-header">Families</h1>
 
                     <div class="card-body">
-                        
+
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">Families Table</h3>
@@ -39,7 +39,7 @@
                               <th>Health Issues</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="family in families">
+                            <tr v-for="family in families.data">
                               <td v-if="family.contact_history" style="color: red; font-weight: bold;" v-text="family.name"></td>
                               <td v-else style="color: green;font-weight: bold;" v-text="family.name"></td>
                               <td v-text="family.phone"></td>
@@ -60,9 +60,12 @@
                                 <button style="margin-bottom: 5px" @click="deleteFamily(family.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
-                            
+
                           </table>
                         </div>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchFamilies"></pagination>
+                            </div>
                         <!-- /.box-body -->
                       </div>
                     </div>
