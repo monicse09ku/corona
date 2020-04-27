@@ -14,14 +14,14 @@
                   </button>
 
                   <div v-if="showVolunteerForm">
-                    
+
                     @include('volunteer.form')
                   </div>
 
                     <h1 class="card-header">Volunteer</h1>
 
                     <div class="card-body">
-                        
+
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">Volunteer Table</h3>
@@ -46,9 +46,12 @@
                                 <button style="margin-bottom: 5px" @click="deleteVolunteer(volunteer.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
-                            
+
                           </table>
                         </div>
+                            <div v-if="pagination.total>0" class="box-footer">
+                                <pagination :data="pagination" @pagination-change-page="fetchVolunteers"></pagination>
+                            </div>
                         <!-- /.box-body -->
                       </div>
                     </div>
