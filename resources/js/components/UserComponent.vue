@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchUsers(), 1000)  
+            setTimeout(() => this.fetchUsers(), 1000)
         },
         data(){
             return {
@@ -78,8 +78,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditUser(data){

@@ -16,7 +16,8 @@ class OrganisationController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return OrganisationResource::collection(Organisation::paginate(request('limit') ?? 10));
+//        return OrganisationResource::collection(Organisation::paginate(request('limit') ?? 10));
+        return Organisation::paginate(request('limit') ?? 10);
     }
 
     /**

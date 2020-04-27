@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchOrganisations(), 1000)  
+            setTimeout(() => this.fetchOrganisations(), 1000)
         },
         data(){
             return {
@@ -19,11 +19,11 @@
 
         },
         methods: {
-            fetchOrganisations(){
-                axios.get('api/organisations')
+            fetchOrganisations(page=1){
+                axios.get('api/organisations?page='+page)
                 .then( res => {
-                    this.organisations = res.data.data
-                    console.log(res.data.data)
+                    this.organisations = res.data
+                    console.log(this.organisations)
                 })
             },
             saveOrganisation(){
@@ -56,8 +56,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditOrganisation(data){

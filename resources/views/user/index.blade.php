@@ -14,14 +14,14 @@
                   </button>
 
                   <div v-if="showUserForm">
-                    
+
                     @include('user.form')
                   </div>
 
                     <h1 class="card-header">User</h1>
 
                     <div class="card-body">
-                        
+
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">User Table</h3>
@@ -48,7 +48,7 @@
                                 <button style="margin-bottom: 5px" @click="deleteUser(user.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
-                            
+
                           </table>
                         </div>
                         <!-- /.box-body -->

@@ -2686,9 +2686,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchOrganisations: function fetchOrganisations() {
       var _this2 = this;
 
-      axios.get('api/organisations').then(function (res) {
-        _this2.organisations = res.data.data;
-        console.log(res.data.data);
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/organisations?page=' + page).then(function (res) {
+        _this2.organisations = res.data;
+        console.log(_this2.organisations);
       });
     },
     saveOrganisation: function saveOrganisation() {

@@ -14,14 +14,14 @@
                   </button>
 
                   <div v-if="showOrganisationForm">
-                    
+
                     @include('organisation.form')
                   </div>
 
                     <h1 class="card-header">Organisation</h1>
 
                     <div class="card-body">
-                        
+
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">Organisation Table</h3>
@@ -34,7 +34,7 @@
                               <th>Status</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
-                            <tr v-for="organisation in organisations">
+                            <tr v-for="organisation in organisations.data">
                               <td v-text="organisation.name"></td>
                               <td v-text="organisation.status"></td>
                               <td>
@@ -42,9 +42,12 @@
                                 <button style="margin-bottom: 5px" @click="deleteOrganisation(organisation.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>
-                            
+
                           </table>
                         </div>
+                            <div v-if="organisations.total>0" class="box-footer">
+                                <pagination :data="organisations" @pagination-change-page="fetchOrganisations"></pagination>
+                            </div>
                         <!-- /.box-body -->
                       </div>
                     </div>
