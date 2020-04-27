@@ -2,7 +2,7 @@
     export default {
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchVolunteers(), 1000)  
+            setTimeout(() => this.fetchVolunteers(), 1000)
         },
         data(){
             return {
@@ -21,10 +21,11 @@
 
         },
         methods: {
-            fetchVolunteers(){
-                axios.get('api/volunteers')
+            fetchVolunteers(page=1){
+                axios.get('api/volunteers?page='+page)
                 .then( res => {
                     this.volunteers = res.data.data
+                    this.pagination = res.data.meta
                     console.log(res.data.data)
                 })
             },
@@ -62,8 +63,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditVolunteer(data){

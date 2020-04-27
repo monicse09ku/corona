@@ -16,7 +16,8 @@ class DonationAreaController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return DonationAreaResource::collection(DonationArea::paginate(request('limit') ?? 10));
+//        return DonationAreaResource::collection(DonationArea::paginate(request('limit') ?? 10));
+        return DonationArea::paginate(request('limit') ?? 10);
     }
 
     /**

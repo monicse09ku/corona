@@ -1876,8 +1876,9 @@ __webpack_require__.r(__webpack_exports__);
     fetchDonationAreas: function fetchDonationAreas() {
       var _this2 = this;
 
-      axios.get('api/donation-areas').then(function (res) {
-        _this2.donationAreas = res.data.data;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/donation-areas?page=' + page).then(function (res) {
+        _this2.donationAreas = res.data;
       });
     },
     saveDonationArea: function saveDonationArea() {
@@ -3009,8 +3010,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchVolunteers: function fetchVolunteers() {
       var _this2 = this;
 
-      axios.get('api/volunteers').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/volunteers?page=' + page).then(function (res) {
         _this2.volunteers = res.data.data;
+        _this2.pagination = res.data.meta;
         console.log(res.data.data);
       });
     },

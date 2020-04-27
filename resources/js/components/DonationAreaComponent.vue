@@ -4,7 +4,7 @@
         components: { VueGoogleAutocomplete },
         mounted() {
             this.loading = true
-            setTimeout(() => this.fetchDonationAreas(), 1000)  
+            setTimeout(() => this.fetchDonationAreas(), 1000)
         },
         data(){
             return {
@@ -25,13 +25,13 @@
         methods: {
             getAddressData: function (addressData, placeResultData, id) {
                 this.donationArea.area_name = addressData.route + ', ' + addressData.locality
-                this.donationArea.lat = addressData.latitude 
-                this.donationArea.long = addressData.longitude 
+                this.donationArea.lat = addressData.latitude
+                this.donationArea.long = addressData.longitude
             },
-            fetchDonationAreas(){
-                axios.get('api/donation-areas')
+            fetchDonationAreas(page=1){
+                axios.get('api/donation-areas?page='+page)
                 .then( res => {
-                    this.donationAreas = res.data.data
+                    this.donationAreas = res.data
                 })
             },
             saveDonationArea(){
@@ -69,8 +69,8 @@
                     }else{
                         alert('Something Went Wrong!!')
                     }
-                });  
-                
+                });
+
             },
 
             EditDonationArea(data){
