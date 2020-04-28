@@ -11,7 +11,7 @@
               <ul class="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <!-- 
+               <!--
                  <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               -->
@@ -26,7 +26,7 @@
               </ul>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
             <ul class="menuzord-menu">
               <li class="active"><a href="{{ url('/')}}">Home</a></li>
               <li><a href="{{ url('/#about/')}}">About</a></li>
-              
+
               <li><a href="{{ url('/#team') }}">Volunteer</a></li>
               <!--
               <li><a href="#gallery">Gallery</a></li>
@@ -60,9 +60,40 @@
                     <h2 class="donation-title">Donation Information</h2>
                     <p>You can donate using one of the following services</p>
                 </div>
-            </div>   
+            </div>
         </div>
-    
+
+        <div class="col-sm-6">
+            <div class="bkash-border">
+                <div class="logo-outer">
+                    <div class="logo">
+                        <img src="{{ asset('/images/donationLogos/paypal.png')}}" alt="paypal" height="60px"/>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <ul>
+                        <li><p><b>**</b>&nbsp;Pay with Paypal</p></li>
+                        <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
+                    </ul>
+                    <a href="{{route('donation.paypal')}}" class="btn btn-success">Pay Now</a>
+                </div>
+            </div>
+        </div><div class="col-sm-6">
+            <div class="bkash-border">
+                <div class="logo-outer">
+                    <div class="logo">
+                        <img src="{{ asset('/images/donationLogos/Card.png')}}" alt="paypal" height="60px"/>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <ul>
+                        <li><p><b>**</b>&nbsp;Pay with Caedit/Debit Card</p></li>
+                        <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
+                    </ul>
+                    <a href="{{route('donation.stripe')}}" class="btn btn-success">Pay Now</a>
+                </div>
+            </div>
+        </div>
         <div class="col-sm-6">
             <div class="bkash-border">
                 <div class="logo-outer">
@@ -146,10 +177,10 @@
                     <br>SWIFT Code: DBBLBDDH
                     <br>Routing No: 090471544</p>
                 </div>
-                
+
             </div>
         </div>
-    </div>    
+    </div>
     <div class="footer-bottom bg-black-333">
       <div class="container pt-15 pb-10">
         <div class="row">
@@ -175,8 +206,8 @@
           </div>
         </div>
       </div>
-    </div>  
-    
+    </div>
+
 
 
 

@@ -14,7 +14,7 @@
   <title>
       {{ config('app.name') }} - @yield('title')
   </title>
-    
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{asset('css/frontend/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/frontend/jquery-ui.min.css')}}">
@@ -29,17 +29,20 @@
   <link rel="stylesheet" href="{{asset('css/frontend/responsive.css')}}">
   <!-- CSS | Theme Color -->
   <link rel="stylesheet" href="{{asset('css/frontend/colors/theme-skin-green.css')}}">
-  <!-- Revolution Slider StyleSheet --> 
+  <!-- Revolution Slider StyleSheet -->
   <link rel="stylesheet" href="{{asset('js/frontend/revolution-slider/css/settings.css')}}">
   <link rel="stylesheet" href="{{asset('js/frontend/revolution-slider/css/layers.css')}}">
   <link rel="stylesheet" href="{{asset('js/frontend/revolution-slider/css/settings.css')}}">
 
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 </head>
 <body>
 
 <div class="wrapper">
-        
+
       @yield('content')
 
 </div>

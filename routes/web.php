@@ -23,6 +23,20 @@ Route::get('/user-area', function () {
     return view('welcome');
 });
 
+//donation routs
+Route::group(['prefix'=>'donation','namespace'=>'Frontend'],function(){
+    Route::get('pay-with-paypal','MakeDonationController@payWithPaypal')->name('donation.paypal');
+    Route::post('paypal-payment','MakeDonationController@PaypalPayment')->name('donation.paypal.payment');
+    Route::get('paypal-payment-success','MakeDonationController@PaypalPaymentSuccess')->name('donation.paypal.payment.success');
+    Route::get('paypal-payment-cancel','MakeDonationController@PaypalPaymentCancel')->name('donation.paypal.payment.cancel');
+
+    // stripe payment
+    Route::get('pay-with-stripe','MakeDonationController@payWithStripe')->name('donation.stripe');
+    Route::post('stripe-payment','MakeDonationController@stripePayment')->name('donation.stripe.payment');
+
+});
+
+
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
