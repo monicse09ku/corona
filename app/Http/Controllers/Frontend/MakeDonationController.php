@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\GuestDonationTransaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -53,13 +54,20 @@ class MakeDonationController extends Controller
 
     public function PaypalPaymentSuccess(Request $request)
     {
-
         $provider = new ExpressCheckout;
         $response = $provider->getExpressCheckoutDetails($request->token);
 
-        dd($response);
-
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            $transaction_data=[
+                'name'=>$response['L_NAME0'],
+                'email'=>$response['EMAIL'],
+                'transaction_id'=>$response['TOKEN'],
+                'amount'=>$response['AMT'],
+                'currency'=>$response['CURRENCYCODE'],
+            ];
+            Log::info($request->token);
+            Log::info($transaction_data);
+            $this->guestDonationTransaction($transaction_data,GuestDonationTransaction::TRANSACTION_TYPE_PAYPAL);
             return view('frontend.payment.paypal')->with('success','Your payment was successfully. Your payment token is '.$request->token);
         }else{
             return view('frontend.payment.paypal')->with('error', 'Something went wrong.');
@@ -75,15 +83,35 @@ class MakeDonationController extends Controller
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
         $data = Charge::create ([
-            "amount" => 100 * 100,
+            "amount" => 10 * 100, //todo::amount will change accourding to form value
             "currency" => "usd",
             "source" => $request->stripeToken,
-            "description" => "Test payment from itsolutionstuff.com."
+            "description" => "Donation"
         ]);
 
-
-        Session::flash('success', 'Payment successful!');
-
+        if(isset($data) && $data['status']=='succeeded'){
+            $transaction_data=[
+                'transaction_id'=>$data['balance_transaction'],
+                'amount'=>$data['amount']/100,
+                'currency'=>$data['currency'],
+                ];
+            $this->guestDonationTransaction($transaction_data,GuestDonationTransaction::TRANSACTION_TYPE_STRIPE);
+            Session::flash('success', 'Payment successful!');
+        }else{
+            Session::flash('error', 'Something went wrong!');
+        }
         return back();
+    }
+
+    private function guestDonationTransaction($data,$type){
+
+       return GuestDonationTransaction::create([
+            'name'=>isset($data['name'])?$data['name']:'',
+            'email'=>isset($data['email'])?$data['email']:'',
+            'transaction_id'=>$data['transaction_id'],
+            'amount'=>$data['amount'],
+            'currency'=>$data['currency'],
+            'type'=>$type
+        ]);
     }
 }
