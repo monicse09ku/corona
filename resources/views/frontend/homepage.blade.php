@@ -73,16 +73,16 @@
     <!-- Section: home -->
     <section id="home" class="divider rev_slider_wrapper">
       <div class="fullwidth-carousel" data-nav="true">
-        <div class="item bg-img-cover" data-bg-img="images/bg/bg2.jpg">
+        <div class="item bg-img-cover" data-bg-img="images/bg/999.jpg">
           <div class="display-table">
             <div class="display-table-cell">
               <div class="container pt-150 pb-150">
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
-                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Crowdfunding</span></h1>
-                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Every day we bring hope to millions of children in the world's<br>  hardest places as a sign of God's unconditional love.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Book Now</a> 
+                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
+                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a> 
                     </div>
                   </div>
                 </div>
@@ -90,16 +90,16 @@
             </div>
           </div>
         </div>
-        <div class="item bg-img-cover" data-bg-img="images/bg/bg23.jpg">
+        <div class="item bg-img-cover" data-bg-img="images/bg/9.jpg">
           <div class="display-table">
             <div class="display-table-cell">
               <div class="container pt-150 pb-150">
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
-                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Crowdfunding</span></h1>
-                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Every day we bring hope to millions of children in the world's<br>  hardest places as a sign of God's unconditional love.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Book Now</a> 
+                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
+                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
                     </div>
                   </div>
                 </div>
@@ -107,16 +107,16 @@
             </div>
           </div>
         </div>
-        <div class="item bg-img-cover" data-bg-img="images/bg/bg20.jpg">
+        <div class="item bg-img-cover" data-bg-img="images/bg/2.jpg">
           <div class="display-table">
             <div class="display-table-cell">
               <div class="container pt-150 pb-150">
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
-                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Crowdfunding</span></h1>
-                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Every day we bring hope to millions of children in the world's<br>  hardest places as a sign of God's unconditional love.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Book Now</a> 
+                      <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
+                      <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
                     </div>
                   </div>
                 </div>
@@ -137,8 +137,9 @@
                 <a class="icon" href="#">
                   <i class="flaticon-charity-world-in-your-hands font-48 font-weight-100"></i>
                 </a>
-                <h4 class="text-uppercase mt-0">Expert Engineers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
+                <h4 class="text-uppercase mt-0">bKash</h4>
+                <p>01627621937 - Saidur Rahman <br> 01711433117 - Arafat Habib Akash <br> 01670695630 - 
+                Ahmed All Razi</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-4">
@@ -146,8 +147,9 @@
                 <a class="icon" href="#">
                   <i class="flaticon-charity-shaking-hands-inside-a-heart font-48 font-weight-100"></i>
                 </a>
-                <h4 class="text-uppercase mt-0">Latest Tools</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
+                <h4 class="text-uppercase mt-0">Rocket</h4>
+                <p>017238735146 - Apurba Kumar Sen <br> 016706956301 - Ahmed All Razi <br> 013031547524 - 
+                Niloy Sarkar</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-4">
@@ -155,8 +157,8 @@
                 <a class="icon" href="#">
                   <i class="flaticon-charity-child-hand-on-adult-hand font-48 font-weight-100"></i>
                 </a>
-                <h4 class="text-uppercase mt-0">Quick Delivery</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
+                <h4 class="text-uppercase mt-0">DBBL</h4>
+                <p>Shounok Rahman, <br> AC. Info: 120.101.309440, <br> Khulna Branch</p>
               </div>
             </div>
           </div>
@@ -173,15 +175,15 @@
               <div class="row">
                 <div class="col-md-6 col-sm-6 pl-0">
                   <div class="img-hover-border mt-sm-40">
-                    <img class="img-fullwidth" src="images/about/d1.jpg" alt="">
+                    <img class="img-fullwidth" src="images/about/111.jpg" alt="">
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 pl-0 pr-0">
                   <div class="img-hover-border mt-sm-30">
-                    <img class="img-fullwidth" src="images/about/d2.jpg" alt="">
+                    <img class="img-fullwidth" src="images/about/1.jpg" alt="">
                   </div>
                   <div class="img-hover-border mt-15 mt-sm-30">
-                    <img class="img-fullwidth" src="images/about/a4.jpg" alt="">
+                    <img class="img-fullwidth" src="images/about/77.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -189,10 +191,10 @@
             <div class="col-md-6">
               <div class="about-details">
                 <h2 class="font-36 mt-0"> Welcome to <br><span class="text-theme-colored">Volunteers Against Contagion</span></h2>
-                <p> Please Rise your Helping Hand</p>
+                <p> "May every life be protected"</p>
                 <div class="singnature mt-20">
-                  <img src="images/signature.png" alt="img1">
-                </div>
+<!--                   <img src="images/signature.png" alt="img1">
+ -->                </div>
                 <a href="#" class="btn btn-flat btn-colored btn-theme-colored mt-15 mr-15">Read More</a>
                 <a href="{{ url('/make_donations') }}" class="btn btn-flat btn-colored btn-default btn-theme-colored mt-15">Donate Now</a>
               </div>
@@ -203,7 +205,7 @@
     </section>
 
     <!-- Divider: Funfact -->
-    <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/bg4.jpg" data-parallax-ratio="0.7">
+    <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/4.jpg" data-parallax-ratio="0.7">
       <div class="container pt-80 pb-80">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
@@ -249,32 +251,32 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                   <div class="icon-box left media bg-silver-light border-1px border-theme-colored p-15 mb-20"> <a class="media-left pull-left flip" href="#"><i class="flaticon-charity-shaking-hands-inside-a-heart text-theme-colored"></i></a>
                     <div class="media-body">
-                      <h4 class="font-15 text-uppercase">Save The children</h4>
-                      <p>Lorem ipsum dolor sit ametcons ecte adipisicing eli cumconse teturs lorem ipsum dolor is emmit</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                  <div class="icon-box left media bg-silver-light border-1px border-theme-colored p-15 mb-20"> <a class="media-left pull-left flip" href="#"><i class="flaticon-charity-shelter text-theme-colored"></i></a>
-                    <div class="media-body">
-                      <h4 class="font-15 text-uppercase">Help The Helpless</h4>
-                      <p>Lorem ipsum dolor sit ametcons ecte adipisicing eli cumconse teturs lorem ipsum dolor is emmit</p>
+                      <h4 class="font-15 text-uppercase">Supporting Local Community</h4>
+                      <p>To coordinate care efforts for people <br> who are self-isolating, including <br> the elderly, disabled and people with <br> other pre-existing health issues.<br><br></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                   <div class="icon-box left media bg-silver-light border-1px border-theme-colored p-15 mb-20"> <a class="media-left pull-left flip" href="#"><i class="flaticon-charity-responsible-use-of-water text-theme-colored"></i></a>
                     <div class="media-body">
-                      <h4 class="font-15 text-uppercase">Pure Water For Poor</h4>
-                      <p>Lorem ipsum dolor sit ametcons ecte adipisicing eli cumconse teturs lorem ipsum dolor is emmit</p>
+                      <h4 class="font-15 text-uppercase">Mutual Aid</h4>
+                      <p>Get masks, other lifesaving medical<br> supplies to the people in need, and<br> deliver essential items to struggling<br> families and older individuals in<br> quarantined areas.</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                   <div class="icon-box left media bg-silver-light border-1px border-theme-colored p-15 mb-20"> <a class="media-left pull-left flip" href="#"><i class="flaticon-charity-make-a-donation text-theme-colored"></i></a>
                     <div class="media-body">
-                      <h4 class="font-15 text-uppercase">Donation for poor</h4>
-                      <p>Lorem ipsum dolor sit ametcons ecte adipisicing eli cumconse teturs lorem ipsum dolor is emmit</p>
+                      <h4 class="font-15 text-uppercase">Relief Fund Raising</h4>
+                      <p>Your contribution to this fund would help urgent and long-term stabilization and healing in distressed communities.<br><br><br></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                  <div class="icon-box left media bg-silver-light border-1px border-theme-colored p-15 mb-20"> <a class="media-left pull-left flip" href="#"><i class="flaticon-charity-shelter text-theme-colored"></i></a>
+                    <div class="media-body">
+                      <h4 class="font-15 text-uppercase">Public Health</h4>
+                      <p>Support hygiene awareness efforts and ensure disinfection.<br><br><br><br></p>
                     </div>
                   </div>
                 </div>
@@ -358,88 +360,205 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <h2 class="text-uppercase line-bottom-center mt-0">Our <span class="text-theme-colored font-weight-600">volunteers</span></h2>
-              <div class="title-icon">
+              <!-- <div class="title-icon">
                 <i class="flaticon-charity-hand-holding-a-heart"></i>
+              </div> -->
+              <p>Our volunteers would be of great support at the time of need.</p>
+              <div>
+                <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
+                
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati! <br>ipsum dolor sit Rem autem voluptatem obcaecati</p>
             </div>
           </div>
         </div>
         <div class="section-content">
           <div class="row multi-row-clearfix">
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team1.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/1.png" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Sakib Jacson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Youth Chamber</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team3.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/2.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Jerin Jacson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">স মা স (সহজ মানুষ সংস্থা)</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team2.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/3.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Alex Jacobson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Do for Bangladesh</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/4.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">মাছি (মানুষেরই ছিলাম সংগঠন)</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="section-content">
+          <div class="row multi-row-clearfix">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/5.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Step Up BD</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/6.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">We For Us</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/7.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Volunteer For Bangladesh</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/8.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">LUHR Foundation</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
+        </div>
       </div>
     </section>
 
     <!-- divider: Emergency Services -->
-    <section class="divider parallax layer-overlay overlay-dark-9" data-stellar-background-ratio="0.2"  data-bg-img="images/bg/bg2.jpg">
+    <section class="divider parallax layer-overlay overlay-dark-9" data-stellar-background-ratio="0.2"  data-bg-img="images/bg/99.jpg">
       <div class="container">
         <div class="section-content text-center">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="mt-0 text-white">How you can help us</h2>
-              <h2 class="text-white">Just call at <span class="text-theme-colored">(01) 234 5678</span> to make a donation</h2>
+              <h2 class="mt-0 text-white">Want to donate in cash?</h2>
+              <h2 class="text-white">Please call at <span class="text-theme-colored">01670 695630</span> to save the humanity</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="text-gray">or donate here <a href="{{ url('/make_donations') }}" class="btn btn-flat btn-colored btn-default btn-theme-colored">Donate Now</a></h2>
+
             </div>
           </div>
         </div>
@@ -536,7 +655,7 @@
     </section>
 
     <!-- Section: Testimonials -->
-    <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/bg23.jpg" data-parallax-ratio="0.7">
+   <!--  <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/bg23.jpg" data-parallax-ratio="0.7">
       <div class="container pt-60 pb-60">
         <div class="section-title text-center">
           <div class="row">
@@ -596,7 +715,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
     <!-- Divider: Contact -->
@@ -606,7 +725,7 @@
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
               <h2 class="text-uppercase line-bottom-center mt-0">Contact Us</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
+              <p>Stay home, stay safe and get in touch for any suggestion, help and support. We are here for you.<br> voluptatem obcaecati!</p>
             </div>
           </div>
         </div>

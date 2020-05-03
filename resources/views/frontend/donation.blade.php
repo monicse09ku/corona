@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header">
-                    <h2 class="donation-title">Donation Information</h2>
+                    <h1 class="donation-title"> <span class="text-gray"> Donation </span>  <span class="text-theme-colored" >Information</span></h1>
                     <p>You can donate using one of the following services</p>
                 </div>
             </div>
@@ -94,72 +94,86 @@
                 </div>
             </div>
         </div>
+
         <div class="col-sm-6">
             <div class="bkash-border">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="dbbl-border p-30">
+
                 <div class="logo-outer">
-                    <div class="logo">
+                    <div class="logo text-center">
                         <img src="{{ asset('/images/donationLogos/bkash.png')}}" alt="bkash" height="60px"/>
                     </div>
                 </div>
-                <div class="acc-details">
+                <div class="acc-details text-center">
                     <ul>
                         <li><p>01627621937 (সাইদুর রহমান)</p></li>
                         <li><p>01711433117 (আরাফাত হাবিব আকাশ)</p></li>
                         <li><p>01670695630 (আহমাদ আল রাজী)</p></li>
                     </ul>
                 </div>
-                <div class="footer-info">
+                <div class="footer-info text-center">
                     <ul>
                         <li><p><b>**</b>&nbsp;সবগুলো পার্সোনাল অ্যাকাউন্ট</p></li>
                         <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
                     </ul>
                 </div>
             </div>
+          </div>
+
+          <div class="col-sm-6">
+              <div class="dbbl-border p-30">
+                  <div class="logo-outer">
+                      <div class="logo text-center">
+                          <img src="{{ asset('/images/donationLogos/dutch-bangla-rocket.png')}}" alt="rocket" height="60px"/>
+                      </div>
+                  </div>
+                  <div class="acc-details text-center">
+                      <ul>
+                          <li><p>017238735146 (অপূর্ব কুমার সেন)</p></li>
+                          <li><p>016706956301 (আহমাদ আল রাজী)</p></li>
+                          <li><p>013031547524 (নিলয় সরকার)</p></li>
+                      </ul>
+                  </div>
+                  <div class="footer-info text-center">
+                      <ul>
+                          <li><p><b>**</b>&nbsp;সবগুলো পার্সোনাল অ্যাকাউন্ট</p></li>
+                          <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
         </div>
 
-        <div class="col-sm-6">
-            <div class="rocket-border">
+        <div class="row mt-15 mb-15">
+          <div class="col-sm-6">
+            <div class="dbbl-border p-30">
                 <div class="logo-outer">
-                    <div class="logo">
-                        <img src="{{ asset('/images/donationLogos/dutch-bangla-rocket.png')}}" alt="rocket" height="60px"/>
-                    </div>
-                </div>
-                <div class="acc-details">
-                    <ul>
-                        <li><p>017238735146 (অপূর্ব কুমার সেন)</p></li>
-                        <li><p>016706956301 (আহমাদ আল রাজী)</p></li>
-                        <li><p>013031547524 (নিলয় সরকার)</p></li>
-                    </ul>
-                </div>
-                <div class="footer-info">
-                    <ul>
-                        <li><p><b>**</b>&nbsp;সবগুলো পার্সোনাল অ্যাকাউন্ট</p></li>
-                        <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-6">
-            <div class="nogod-border">
-                <div class="logo-outer">
-                    <div class="logo">
+                    <div class="logo text-center">
                         <img src="{{ asset('/images/donationLogos/nogod.png')}}" alt="nogod" height="60px"/>
                     </div>
                 </div>
-                <div class="acc-details">
+                <div class="acc-details text-center">
                     <ul>
                         <li><p>01670695630 (আহমাদ আল রাজী)</p></li>
                     </ul>
                 </div>
-                <div class="footer-info">
+                <div class="footer-info text-center">
                     <ul>
                         <li><p><b>**</b>&nbsp;পার্সোনাল অ্যাকাউন্ট</p></li>
                         <li><p><b>**</b>&nbsp;রেফারেন্সে 'Corona' লিখতে ভুলবেন না</p></li>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
                     </ul>
                 </div>
             </div>
-        </div>
+          </div>
+
 
         <div class="col-sm-6">
             <div class="dbbl-border">
@@ -179,6 +193,27 @@
                 </div>
 
             </div>
+
+          <div class="col-sm-6">
+              <div class="dbbl-border p-30">
+                  <div class="logo-outer">
+                      <div class="logo-dbbl text-center">
+                          <img src="{{ asset('/images/donationLogos/dutch-bangla-bank2.png') }}" alt="dbbl" height="60px"/>
+                      </div>
+                  </div>
+                  <div class="acc-details text-center">
+                      <h4 class="bank-info">Shounok Rahman</h4>
+                      <p>Dutch-Bangla Bank Ltd.</p>
+                      <p>A/C No: 1201010309440
+                      <br>Branch: Khulna
+                      <br>Branch Code: 120
+                      <br>SWIFT Code: DBBLBDDH
+                      <br>Routing No: 090471544</p>
+                  </div>
+                  
+              </div>
+          </div>
+
         </div>
     </div>
     <div class="footer-bottom bg-black-333">
