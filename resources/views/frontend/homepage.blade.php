@@ -82,7 +82,7 @@
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
                       <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
                       <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Donate Now</a> 
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a> 
                     </div>
                   </div>
                 </div>
@@ -99,7 +99,7 @@
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
                       <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
                       <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Donate Now</a>
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
                     </div>
                   </div>
                 </div>
@@ -116,7 +116,7 @@
                     <div class="inline-block outline-border mt-40 pb-60 pl-60 pr-60 pt-40" data-bg-color="rgba(255,255,255, 0.8)">
                       <h1 class="text-uppercase text-theme-colored font-raleway font-weight-800 mb-0 mt-0 font-48" ><span class="text-theme-colored">Aid To Humanity</span></h1>
                       <p class="font-16 text-black font-raleway letter-spacing-1 mb-20">Raise your hand to protect lives and be a soldier <br>  to save the world from this pandemic.</p>
-                      <a class="btn btn-colored btn-theme-colored" href="#">Donate Now</a>
+                      <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
                     </div>
                   </div>
                 </div>
@@ -360,76 +360,187 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <h2 class="text-uppercase line-bottom-center mt-0">Our <span class="text-theme-colored font-weight-600">volunteers</span></h2>
-              <div class="title-icon">
+              <!-- <div class="title-icon">
                 <i class="flaticon-charity-hand-holding-a-heart"></i>
-              </div>
+              </div> -->
               <p>Our volunteers would be of great support at the time of need.</p>
+              <div>
+                <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
+                
+              </div>
             </div>
           </div>
         </div>
         <div class="section-content">
           <div class="row multi-row-clearfix">
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team1.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/1.png" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Sakib Jacson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Youth Chamber</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team3.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/2.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Jerin Jacson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">স মা স (সহজ মানুষ সংস্থা)</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/team2.jpg" class="img-fullwidth">
-                  <div class="overlay">
+                  <img alt="" src="images/team/3.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
                     <div class="content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-                <div class="team-info bg-theme-colored">
-                  <h3 class="mt-0 text-white">Alex Jacobson</h3>
-                  <ul class="styled-icons icon-circled icon-theme-colored">
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Do for Bangladesh</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/4.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">মাছি (মানুষেরই ছিলাম সংগঠন)</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div class="section-content">
+          <div class="row multi-row-clearfix">
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/5.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Step Up BD</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/6.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">We For Us</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/7.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">Volunteer For Bangladesh</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                  <img alt="" src="images/team/8.jpg" class="mb-30 img-fullwidth">
+                  <!-- <div class="overlay">
+                    <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste nihil ex libero ab esse, dignissimos maxime enim sint laborum.</p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="team-info">
+                  <h4 class="mt-0 text-gray">LUHR Foundation</h4>
+                  <!-- <ul class="styled-icons icon-circled icon-theme-colored">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a class="btn btn-colored btn-theme-colored" href="{{ url('/make_donations') }}">Donate Now</a>
         </div>
       </div>
     </section>
@@ -544,7 +655,7 @@
     </section>
 
     <!-- Section: Testimonials -->
-    <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/bg23.jpg" data-parallax-ratio="0.7">
+   <!--  <section class="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/bg/bg23.jpg" data-parallax-ratio="0.7">
       <div class="container pt-60 pb-60">
         <div class="section-title text-center">
           <div class="row">
@@ -604,7 +715,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
     <!-- Divider: Contact -->
