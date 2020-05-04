@@ -306,7 +306,7 @@
         <div class="section-title text-center">
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <h2 class="text-uppercase line-bottom-center mt-0">Our <span class="text-theme-colored font-weight-600">volunteers</span></h2>
+              <h2 class="text-uppercase line-bottom-center mt-0">Our <span class="text-theme-colored font-weight-600">co-warriors</span></h2>
               <!-- <div class="title-icon">
                 <i class="flaticon-charity-hand-holding-a-heart"></i>
               </div> -->
@@ -449,7 +449,7 @@
             <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
               <div class="team-member clearfix">
                 <div class="team-thumb">
-                  <img alt="" src="images/team/7.jpg" class="mb-30 img-fullwidth">
+                  <img alt="" src="images/team/7.png" class="mb-30 img-fullwidth">
                   <div class="overlay">
                     <div class="content">
                       <p>Volunteer for Bangladesh is a nation-wide association of Volunteer Action Groups that work for the betterment of their individual communities and the nation as a whole.</p>
