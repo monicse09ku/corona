@@ -14,7 +14,7 @@ class AddFamilyIdArrayToDonationsTable extends Migration
     public function up()
     {
         Schema::table('donations', function (Blueprint $table) {
-            $table->text('family_id_array');
+            $table->text('family_id_array')->after('family_ids');
         });
     }
 
