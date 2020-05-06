@@ -43,6 +43,7 @@ class DonationController extends ApiBaseController
             Donation::create([
                     'donation_area_id' => $request->donation_area_id,
                     'family_ids' => $request->family_ids,
+                    'family_id_array' => array_column($request->family_ids, 'id'),
                     'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
@@ -74,6 +75,7 @@ class DonationController extends ApiBaseController
             Donation::where('id', $id)->update([
                     'donation_area_id' => $request->donation_area_id,
                     'family_ids' => $request->family_ids,
+                    'family_id_array' => array_column($request->family_ids, 'id'),
                     'org_id' => $request->org_id
                 ]);
             return $this->respondSuccess('SUCCESS');
