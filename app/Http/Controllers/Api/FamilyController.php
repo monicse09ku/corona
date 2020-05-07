@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Donation;
+use App\Models\DonationArea;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\FamilyResource;
 use App\Models\Family;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class FamilyController extends ApiBaseController
 {
@@ -17,7 +21,34 @@ class FamilyController extends ApiBaseController
      */
     public function index(Request $request)
     {
-        return FamilyResource::collection(Family::with('donation_area')->orderBy('id', 'DESC')->paginate(request('limit') ?? 25));
+
+        $data=[];
+        $text2= "REPLACE(group_concat(family_id_array),'[','')";
+        if(!empty($request->days)){
+            $family_ids = Donation::where(['donation_area_id'=>$request->area_id])
+                ->select(DB::raw("REPLACE(".$text2.",']','') as ttt"))
+                ->where('created_at','>',Carbon::now()->addDays(-$request->days)->format('Y-m-d'))
+                ->groupBy('donation_area_id')
+                ->first();
+
+        }
+
+        $data['families'] = Family::with('donation_area');
+
+        if(!empty($request->area_id)){
+            $data['families']=$data['families']->where('donation_area_id',(int)$request->area_id);
+        }
+        if(isset($family_ids) && isset($family_ids->ttt) && !empty($family_ids->ttt)){
+            $data['families']=$data['families']->whereIn('id',explode(',',$family_ids->ttt));
+        }elseif(!empty($request->days) && !isset($family_ids)){
+            $data['families']=$data['families']->whereIn('id',[0]);
+        }
+        $data['families']=$data['families']->orderBy('id', 'DESC')
+            ->paginate(request('limit') ?? 1);
+
+        $data['areas'] = DonationArea::get();
+
+        return $data;
     }
 
     /**

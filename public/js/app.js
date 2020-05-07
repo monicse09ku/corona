@@ -2371,6 +2371,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2413,9 +2415,12 @@ __webpack_require__.r(__webpack_exports__);
         contact_history: 0
       },
       family_id: '',
+      donation_area: [],
       pagination: {},
       edit: false,
-      showFamilyForm: false
+      showFamilyForm: false,
+      selected: '',
+      days: ''
     };
   },
   methods: {
@@ -2423,9 +2428,24 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('api/families?page=' + page).then(function (res) {
-        _this2.families = res.data.data;
-        _this2.pagination = res.data.meta; // console.log(res)
+      var area = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      var days = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      console.log(days);
+
+      if (Number.isInteger(area)) {
+        this.selected = area;
+      } else if (_typeof(area) == 'object') {
+        this.selected = area.target.value;
+      }
+
+      if (days != '') {
+        this.days = days.target.value;
+      }
+
+      axios.get('api/families?page=' + page + '&area_id=' + this.selected + '&days=' + this.days).then(function (res) {
+        _this2.families = res.data.families.data;
+        _this2.pagination = res.data.families;
+        _this2.donation_area = res.data.areas;
       });
     },
     saveFamily: function saveFamily() {

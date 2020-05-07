@@ -113,7 +113,7 @@ class DonationController extends ApiBaseController
             ->groupBy('donation_area_id')->first();
 
         $family =Family::where(['donation_area_id'=>$id]);
-        if(isset($family_ids)){
+        if(isset($family_ids) && isset($family_ids->ttt) && !empty($family_ids->ttt)){
             $family=$family->whereNotIn('id',explode(',',$family_ids->ttt));
         }
         $family=$family->get();

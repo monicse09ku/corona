@@ -25,7 +25,26 @@
                         <div class="box">
                         <div class="box-header">
                           <h3 class="box-title">Families Table</h3>
+                            <div class="row">
+                                <div class="col-sm-3 mb-10">
+                                    <select  @change="fetchFamilies(1,$event)"  class="form-control">
+                                        <option value="">Select Donation Area</option>
+                                        <option v-for="i in donation_area" v-bind:value="i.id" :key="i.id">@{{i.area_name}}</option>
+                                    </select>
+                                </div>
+
+                                <div v-if="selected>0" class="col-sm-3 mb-10">
+                                    <select @change="fetchFamilies(1,selected,$event)" class="form-control">
+                                        <option value="">Select Days</option>
+                                        <option value="7" :key="7">7 Days</option>
+                                        <option value="15" :key="15">15 Days</option>
+                                        <option value="30" :key="30">30 Days</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+
+
                         <!-- /.box-header -->
                         <div class="box-body no-padding">
                           <table class="table table-striped">

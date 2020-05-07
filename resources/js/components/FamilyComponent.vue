@@ -31,18 +31,32 @@
                     contact_history: 0,
                 },
                 family_id: '',
+                donation_area: [],
                 pagination:{},
                 edit:false,
                 showFamilyForm:false,
+                selected:'',
+                days:'',
             }
         },
         methods: {
-            fetchFamilies(page = 1){
-                axios.get('api/families?page=' + page)
+            fetchFamilies(page = 1,area='',days=''){
+                console.log(days)
+                if(Number.isInteger(area)){
+                    this.selected=area
+                }else if(typeof area=='object'){
+                    this.selected=area.target.value
+                }
+                if(days!=''){
+
+                    this.days=days.target.value
+                }
+                axios.get('api/families?page=' + page+'&area_id='+this.selected+'&days='+this.days)
                 .then( res => {
-                    this.families = res.data.data
-                    this.pagination = res.data.meta
-                    // console.log(res)
+                    this.families = res.data.families.data
+                    this.pagination = res.data.families
+                    this.donation_area = res.data.areas
+
                 })
             },
             saveFamily(){
