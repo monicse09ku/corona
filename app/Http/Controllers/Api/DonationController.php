@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\DonationResource;
 use App\Models\Donation;
 use App\Http\Resources\Api\FamilyResource;
 use App\Models\Family;
+use Illuminate\Support\Facades\DB;
 
 class DonationController extends ApiBaseController
 {
@@ -104,6 +106,17 @@ class DonationController extends ApiBaseController
 
     public function donationAreaFamilies($id)
     {
-        return FamilyResource::collection(Family::where('donation_area_id', $id)->get());
+        $text2= "REPLACE(group_concat(family_id_array),'[','')";
+        $family_ids = Donation::where(['donation_area_id'=>$id])
+            ->select(DB::raw("REPLACE(".$text2.",']','') as ttt"))
+            ->where('created_at','<',Carbon::now()->addDays(-6))
+            ->groupBy('donation_area_id')->first();
+
+        $family =Family::where(['donation_area_id'=>$id]);
+        if(isset($family_ids)){
+            $family=$family->whereNotIn('id',explode(',',$family_ids->ttt));
+        }
+        $family=$family->get();
+        return FamilyResource::collection($family);
     }
 }

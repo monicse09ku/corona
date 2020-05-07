@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('frontend.homepage');
 });
+Route::get('test','HomeController@test');
 
 Route::get('/make_donations', function () {
     return view('frontend.donation');
