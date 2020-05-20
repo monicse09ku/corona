@@ -31,11 +31,15 @@
                           <table class="table table-striped">
                             <tr>
                               <th>Donation Area Name</th>
+                              <th>Latitude</th>
+                              <th>longitude</th>
                               <th>Status</th>
                               <th style="width: 120px">Actions</th>
                             </tr>
                             <tr v-for="donationArea in donationAreas">
                               <td v-text="donationArea.area_name"></td>
+                              <td v-text="donationArea.lat"></td>
+                              <td v-text="donationArea.long"></td>
                               <td v-text="donationArea.status"></td>
                               <td>
                                 <button style="margin-bottom: 5px" @click="EditDonationArea(donationArea)" class="btn btn-warning"><i class="fa fa-edit"></i></button>

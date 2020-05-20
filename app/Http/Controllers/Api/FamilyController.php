@@ -44,7 +44,7 @@ class FamilyController extends ApiBaseController
             $data['families']=$data['families']->whereIn('id',[0]);
         }
         $data['families']=$data['families']->orderBy('id', 'DESC')
-            ->paginate(request('limit') ?? 1);
+            ->paginate(request('limit') ?? 10);
 
         $data['areas'] = DonationArea::get();
 

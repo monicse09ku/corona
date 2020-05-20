@@ -10,7 +10,7 @@ class Donation extends Model
 
     protected $casts = [
         'family_ids' => 'array',
-//        'family_id_array' => 'array'
+        'family_id_array' => 'array'
     ];
 
     /**

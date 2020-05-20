@@ -40,7 +40,12 @@
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#blog">Blog</a></li>-->
                         <li><a href="{{ url('/#contact') }}">Contact</a></li>
+                        @guest
                         <li><a href="{{ url('/user-area') }}">Login/Register</a></li>
+                        @endguest
+                        @auth
+                        <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                        @endauth
                     </ul>
                 </nav>
             </div>
